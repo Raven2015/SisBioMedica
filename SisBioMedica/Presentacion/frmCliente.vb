@@ -344,9 +344,31 @@ Public Class frmCliente
         Dim result As DialogResult
 
         result = MessageBox.Show("Realmente desea eliminar los datos del cliente?", "Eliminando Registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
-        'If result = DialogResult.OK Then
+        If result = DialogResult.OK Then
+            Try
+                For Each row As DataGridViewRow In dgvListadoClientes.Rows
+                    Dim marcado As Boolean = Convert.ToBoolean(row.Cells("Eliminar").Value)
+                    If marcado Then
+                        Dim onekey As Integer = Convert.ToInt32(row.Cells("id_cliente").Value)
+                        Dim vdb As New vCliente
+                        Dim func As New fcliente
+                        vdb.gid_cliente = onekey
 
-        'End If
+                        If func.eliminar(vdb) Then
+                        Else
+                            MessageBox.Show("No se pudo eliminar los datos del cliente?", "Eliminando Registros", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        End If
+                    End If
+                Next
+                Call mostrar()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        Else
+            MessageBox.Show("Cancelando eliminación de registros?", "Eliminando Registros", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Call mostrar()
+        End If
+        Call limpiar()
     End Sub
 
     Private Sub dgvListadoClientes_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvListadoClientes.CellClick
