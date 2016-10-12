@@ -279,7 +279,7 @@ Public Class frmCliente
         result = MessageBox.Show("Realmente desea editar los datos del cliente?", "Modificando Registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
         If result = DialogResult.OK Then
 
-            'Al presionar el boton guardar se ejecutan una serie de acciones que permiten crear un nuevo registro en la base de datos.
+            'Al presionar el boton editar se ejecutan una serie de acciones que permiten crear un nuevo registro en la base de datos.
             'PRIMERO: Se verifica que las cajas de texto imprescindibles no esten vacias, que la fecha no sea la actual y otros.
             If Me.ValidateChildren = True And tbCodigo_Cliente.Text <> "" And tbNombres.Text <> "" And tbApellidos.Text <> "" And tbEdad.Text <> "0" And tbCelular.Text <> "" Then
                 Try
@@ -323,6 +323,30 @@ Public Class frmCliente
                 MessageBox.Show("Datos faltantes, por favor rellene todos los campos", "Modificando registros", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         End If
+    End Sub
+
+    Private Sub chbEliminar_CheckedChanged(sender As Object, e As EventArgs) Handles chbEliminar.CheckedChanged
+        If chbEliminar.CheckState = CheckState.Checked Then
+            dgvListadoClientes.Columns.Item("Eliminar").Visible = True
+        Else
+            dgvListadoClientes.Columns.Item("Eliminar").Visible = False
+        End If
+    End Sub
+
+    Private Sub dgvListadoClientes_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvListadoClientes.CellContentClick
+        If e.ColumnIndex = Me.dgvListadoClientes.Columns.Item("Eliminar").Index Then
+            Dim chkcell As DataGridViewCheckBoxCell = Me.dgvListadoClientes.Rows(e.RowIndex).Cells("Eliminar")
+            chkcell.Value = Not chkcell.Value
+        End If
+    End Sub
+
+    Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+        Dim result As DialogResult
+
+        result = MessageBox.Show("Realmente desea eliminar los datos del cliente?", "Eliminando Registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
+        'If result = DialogResult.OK Then
+
+        'End If
     End Sub
 
     Private Sub dgvListadoClientes_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvListadoClientes.CellClick

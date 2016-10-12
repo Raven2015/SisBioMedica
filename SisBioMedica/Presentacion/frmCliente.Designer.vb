@@ -56,13 +56,14 @@ Partial Class frmCliente
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.btnBuscar = New System.Windows.Forms.Button()
+        Me.chbEliminar = New System.Windows.Forms.CheckBox()
         Me.lkInexistente = New System.Windows.Forms.LinkLabel()
         Me.tbBuscar = New System.Windows.Forms.TextBox()
         Me.cbCampo = New System.Windows.Forms.ComboBox()
         Me.dgvListadoClientes = New System.Windows.Forms.DataGridView()
         Me.Eliminar = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.errorIcono = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.btnEliminar = New System.Windows.Forms.Button()
         Me.btnCerrar = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnCancelar = New System.Windows.Forms.Button()
@@ -70,14 +71,14 @@ Partial Class frmCliente
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.btnNuevo = New System.Windows.Forms.Button()
         Me.imgbxLogo = New System.Windows.Forms.PictureBox()
-        Me.errorIcono = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.btnBuscar = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         CType(Me.dgvListadoClientes, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.errorIcono, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.imgbxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.errorIcono, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -412,7 +413,7 @@ Partial Class frmCliente
         '
         'GroupBox3
         '
-        Me.GroupBox3.Controls.Add(Me.CheckBox1)
+        Me.GroupBox3.Controls.Add(Me.chbEliminar)
         Me.GroupBox3.Controls.Add(Me.btnBuscar)
         Me.GroupBox3.Controls.Add(Me.lkInexistente)
         Me.GroupBox3.Controls.Add(Me.tbBuscar)
@@ -422,35 +423,22 @@ Partial Class frmCliente
         Me.GroupBox3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.GroupBox3.Location = New System.Drawing.Point(506, 117)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(422, 571)
+        Me.GroupBox3.Size = New System.Drawing.Size(422, 494)
         Me.GroupBox3.TabIndex = 16
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Listado de Clientes"
         '
-        'CheckBox1
+        'chbEliminar
         '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CheckBox1.Location = New System.Drawing.Point(334, 67)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(82, 23)
-        Me.CheckBox1.TabIndex = 21
-        Me.CheckBox1.Text = "Eliminar"
-        Me.CheckBox1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
-        Me.CheckBox1.UseVisualStyleBackColor = True
-        '
-        'btnBuscar
-        '
-        Me.btnBuscar.FlatAppearance.BorderSize = 0
-        Me.btnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White
-        Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBuscar.Image = Global.SisBioMedica.My.Resources.Resources.search1
-        Me.btnBuscar.Location = New System.Drawing.Point(260, 68)
-        Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.Size = New System.Drawing.Size(25, 24)
-        Me.btnBuscar.TabIndex = 20
-        Me.btnBuscar.UseVisualStyleBackColor = True
+        Me.chbEliminar.AutoSize = True
+        Me.chbEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.chbEliminar.Location = New System.Drawing.Point(334, 67)
+        Me.chbEliminar.Name = "chbEliminar"
+        Me.chbEliminar.Size = New System.Drawing.Size(82, 23)
+        Me.chbEliminar.TabIndex = 21
+        Me.chbEliminar.Text = "Eliminar"
+        Me.chbEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
+        Me.chbEliminar.UseVisualStyleBackColor = True
         '
         'lkInexistente
         '
@@ -494,7 +482,7 @@ Partial Class frmCliente
         Me.dgvListadoClientes.Name = "dgvListadoClientes"
         Me.dgvListadoClientes.ReadOnly = True
         Me.dgvListadoClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvListadoClientes.Size = New System.Drawing.Size(410, 465)
+        Me.dgvListadoClientes.Size = New System.Drawing.Size(410, 381)
         Me.dgvListadoClientes.TabIndex = 0
         '
         'Eliminar
@@ -502,6 +490,29 @@ Partial Class frmCliente
         Me.Eliminar.HeaderText = "Eliminar"
         Me.Eliminar.Name = "Eliminar"
         Me.Eliminar.ReadOnly = True
+        '
+        'errorIcono
+        '
+        Me.errorIcono.ContainerControl = Me
+        '
+        'btnEliminar
+        '
+        Me.btnEliminar.BackColor = System.Drawing.Color.White
+        Me.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnEliminar.FlatAppearance.BorderSize = 0
+        Me.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEliminar.Font = New System.Drawing.Font("Glober Bold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEliminar.Image = Global.SisBioMedica.My.Resources.Resources.garbage1
+        Me.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnEliminar.Location = New System.Drawing.Point(853, 619)
+        Me.btnEliminar.Name = "btnEliminar"
+        Me.btnEliminar.Size = New System.Drawing.Size(75, 70)
+        Me.btnEliminar.TabIndex = 27
+        Me.btnEliminar.Text = "Eliminar"
+        Me.btnEliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
+        Me.btnEliminar.UseVisualStyleBackColor = False
         '
         'btnCerrar
         '
@@ -609,9 +620,18 @@ Partial Class frmCliente
         Me.imgbxLogo.TabIndex = 17
         Me.imgbxLogo.TabStop = False
         '
-        'errorIcono
+        'btnBuscar
         '
-        Me.errorIcono.ContainerControl = Me
+        Me.btnBuscar.FlatAppearance.BorderSize = 0
+        Me.btnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White
+        Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnBuscar.Image = Global.SisBioMedica.My.Resources.Resources.search1
+        Me.btnBuscar.Location = New System.Drawing.Point(260, 68)
+        Me.btnBuscar.Name = "btnBuscar"
+        Me.btnBuscar.Size = New System.Drawing.Size(25, 24)
+        Me.btnBuscar.TabIndex = 20
+        Me.btnBuscar.UseVisualStyleBackColor = True
         '
         'frmCliente
         '
@@ -619,6 +639,7 @@ Partial Class frmCliente
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(940, 700)
+        Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.btnCerrar)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.btnCancelar)
@@ -641,9 +662,9 @@ Partial Class frmCliente
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         CType(Me.dgvListadoClientes, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.errorIcono, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.imgbxLogo, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.errorIcono, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -685,7 +706,7 @@ Partial Class frmCliente
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents btnCerrar As Button
     Friend WithEvents btnBuscar As Button
-    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents chbEliminar As CheckBox
     Friend WithEvents Label14 As Label
     Friend WithEvents Label15 As Label
     Friend WithEvents Label16 As Label
@@ -695,4 +716,5 @@ Partial Class frmCliente
     Friend WithEvents tbci As TextBox
     Friend WithEvents Label10 As Label
     Friend WithEvents tbCodigo_Cliente As TextBox
+    Friend WithEvents btnEliminar As Button
 End Class

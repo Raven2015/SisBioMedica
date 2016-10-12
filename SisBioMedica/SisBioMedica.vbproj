@@ -139,6 +139,8 @@
     <Content Include="Resources\edit2.png" />
     <Content Include="Resources\file-83.png" />
     <Content Include="Resources\floppy-disk1.png" />
+    <None Include="Resources\garbage.png" />
+    <None Include="Resources\garbage1.png" />
     <Content Include="Resources\logobiom.png" />
     <Content Include="Resources\search.png" />
     <None Include="Resources\search1.png" />
