@@ -43,6 +43,8 @@ Partial Class frmCategoria
         Me.Label2 = New System.Windows.Forms.Label()
         Me.imgbxLogo = New System.Windows.Forms.PictureBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.tbCodigoCategoria = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.tbid_categoria = New System.Windows.Forms.TextBox()
         Me.tbNombreCategoria = New System.Windows.Forms.TextBox()
@@ -134,11 +136,11 @@ Partial Class frmCategoria
         '
         'cbCampo
         '
-        Me.cbCampo.AutoCompleteCustomSource.AddRange(New String() {"id_categoria", "nombre_categoria"})
+        Me.cbCampo.AutoCompleteCustomSource.AddRange(New String() {"id_categoria", "nombre_categoria", "codigo_categoria"})
         Me.cbCampo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.cbCampo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cbCampo.FormattingEnabled = True
-        Me.cbCampo.Items.AddRange(New Object() {"id_categoria", "nombre_categoria"})
+        Me.cbCampo.Items.AddRange(New Object() {"id_categoria", "nombre_categoria", "codigo_categoria"})
         Me.cbCampo.Location = New System.Drawing.Point(5, 28)
         Me.cbCampo.Name = "cbCampo"
         Me.cbCampo.Size = New System.Drawing.Size(168, 27)
@@ -272,11 +274,11 @@ Partial Class frmCategoria
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Glober Light", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(204, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(6, 113)
+        Me.Label2.Location = New System.Drawing.Point(8, 114)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(156, 19)
+        Me.Label2.Size = New System.Drawing.Size(148, 19)
         Me.Label2.TabIndex = 0
-        Me.Label2.Text = "Nombre de Categoria"
+        Me.Label2.Text = "Código de Categoria"
         '
         'imgbxLogo
         '
@@ -290,6 +292,8 @@ Partial Class frmCategoria
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.tbCodigoCategoria)
+        Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label10)
         Me.GroupBox1.Controls.Add(Me.tbid_categoria)
         Me.GroupBox1.Controls.Add(Me.tbNombreCategoria)
@@ -303,12 +307,31 @@ Partial Class frmCategoria
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Detalle de Categoria"
         '
+        'tbCodigoCategoria
+        '
+        Me.tbCodigoCategoria.Location = New System.Drawing.Point(166, 106)
+        Me.tbCodigoCategoria.MaxLength = 50
+        Me.tbCodigoCategoria.Name = "tbCodigoCategoria"
+        Me.tbCodigoCategoria.Size = New System.Drawing.Size(287, 27)
+        Me.tbCodigoCategoria.TabIndex = 23
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Glober Light", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.Label3.Location = New System.Drawing.Point(8, 162)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(156, 19)
+        Me.Label3.TabIndex = 22
+        Me.Label3.Text = "Nombre de Categoria"
+        '
         'Label10
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Glober Light", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(204, Byte), Integer))
-        Me.Label10.Location = New System.Drawing.Point(8, 61)
+        Me.Label10.Location = New System.Drawing.Point(8, 66)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(94, 19)
         Me.Label10.TabIndex = 21
@@ -316,6 +339,7 @@ Partial Class frmCategoria
         '
         'tbid_categoria
         '
+        Me.tbid_categoria.Enabled = False
         Me.tbid_categoria.Location = New System.Drawing.Point(166, 58)
         Me.tbid_categoria.MaxLength = 50
         Me.tbid_categoria.Name = "tbid_categoria"
@@ -324,7 +348,7 @@ Partial Class frmCategoria
         '
         'tbNombreCategoria
         '
-        Me.tbNombreCategoria.Location = New System.Drawing.Point(166, 109)
+        Me.tbNombreCategoria.Location = New System.Drawing.Point(166, 154)
         Me.tbNombreCategoria.MaxLength = 50
         Me.tbNombreCategoria.Name = "tbNombreCategoria"
         Me.tbNombreCategoria.Size = New System.Drawing.Size(287, 27)
@@ -398,4 +422,6 @@ Partial Class frmCategoria
     Friend WithEvents tbNombreCategoria As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
+    Friend WithEvents tbCodigoCategoria As TextBox
+    Friend WithEvents Label3 As Label
 End Class

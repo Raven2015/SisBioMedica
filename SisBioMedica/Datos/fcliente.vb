@@ -38,8 +38,8 @@ Public Class fcliente
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
 
-            cmd.Parameters.AddWithValue("@nombre", dts.gnombres)
-            cmd.Parameters.AddWithValue("@apellido", dts.gapellidos)
+            cmd.Parameters.AddWithValue("@nombres", dts.gnombres)
+            cmd.Parameters.AddWithValue("@apellidos", dts.gapellidos)
             cmd.Parameters.AddWithValue("@fecha_nacimiento", dts.gfecha_nacimiento)
             cmd.Parameters.AddWithValue("@direccion", dts.gdireccion)
             cmd.Parameters.AddWithValue("@codigo_asegurado", dts.gcodigo_asegurado)
@@ -72,8 +72,8 @@ Public Class fcliente
             cmd.Connection = cnn
 
             cmd.Parameters.AddWithValue("@id_cliente", dts.gid_cliente)
-            cmd.Parameters.AddWithValue("@nombre", dts.gnombres)
-            cmd.Parameters.AddWithValue("@apellido", dts.gapellidos)
+            cmd.Parameters.AddWithValue("@nombres", dts.gnombres)
+            cmd.Parameters.AddWithValue("@apellidos", dts.gapellidos)
             cmd.Parameters.AddWithValue("@fecha_nacimiento", dts.gfecha_nacimiento)
             cmd.Parameters.AddWithValue("@direccion", dts.gdireccion)
             cmd.Parameters.AddWithValue("@codigo_asegurado", dts.gcodigo_asegurado)

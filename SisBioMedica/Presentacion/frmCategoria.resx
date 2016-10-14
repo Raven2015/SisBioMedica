@@ -149,4 +149,7 @@
         hE0dWw1qgVLpB3xYdzZyBzVwAAAAAElFTkSuQmCC
 </value>
   </data>
+  <metadata name="tbid_categoria.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
 </root>

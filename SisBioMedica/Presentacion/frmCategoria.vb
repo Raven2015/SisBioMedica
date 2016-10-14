@@ -124,14 +124,6 @@ Public Class frmCategoria
         End If
     End Sub
 
-    Private Sub tbid_categoria_Validating(sender As Object, e As CancelEventArgs) Handles tbid_categoria.Validating
-        'Permite validar que el campo ID de categoria no este vacio
-        If DirectCast(sender, TextBox).Text.Length > 0 Then
-            Me.errorIcono.SetError(sender, "")
-        Else
-            Me.errorIcono.SetError(sender, "Ingrese el ID de categoria por favor, Este dato es obligatorio")
-        End If
-    End Sub
 
     Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
         'Al presionar el boton nuevo, se limpian los datos y se muestran los valores por defecto.
@@ -142,7 +134,7 @@ Public Class frmCategoria
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         'Al presionar el boton guardar se ejecutan una serie de acciones que permiten crear un nuevo registro en la base de datos.
         'PRIMERO: Se verifica que las cajas de texto imprescindibles no esten vacias, que la fecha no sea la actual y otros.
-        If Me.ValidateChildren = True And tbNombreCategoria.Text <> "" And tbid_categoria.Text <> "" Then
+        If Me.ValidateChildren = True And tbNombreCategoria.Text <> "" And tbCodigoCategoria.Text <> "" Then
             Try
                 'Se crea una nueva instancia de la clase VCategoria
                 Dim dts As New vCategoria
@@ -151,7 +143,7 @@ Public Class frmCategoria
 
                 'Se pasan los datos existentes en las cajas de texto a la variable dts a traves de sus getters
                 dts.gnombre_categoria = tbNombreCategoria.Text
-                dts.gid_categoria = tbid_categoria.Text
+                dts.gcodigo_categoria = tbCodigoCategoria.Text
 
                 'Se verifica que la funcion insertar devuelva Verdadero, lo cual significa que se registro correctamente.
                 If func.insertar(dts) Then
@@ -181,6 +173,7 @@ Public Class frmCategoria
         btnEditar.Visible = False
         tbNombreCategoria.Text = ""
         tbid_categoria.Text = ""
+        tbCodigoCategoria.Text = ""
     End Sub
 
     Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
@@ -197,7 +190,7 @@ Public Class frmCategoria
 
             'Al presionar el boton editar se ejecutan una serie de acciones que permiten crear un nuevo registro en la base de datos.
             'PRIMERO: Se verifica que las cajas de texto imprescindibles no esten vacias, que la fecha no sea la actual y otros.
-            If Me.ValidateChildren = True And tbid_categoria.Text <> "" And tbNombreCategoria.Text <> "" Then
+            If Me.ValidateChildren = True And tbNombreCategoria.Text <> "" And tbCodigoCategoria.Text <> "" Then
                 Try
                     'Se crea una nueva instancia de la clase VCategoria
                     Dim dts As New vCategoria
@@ -207,6 +200,7 @@ Public Class frmCategoria
                     'Se pasan los datos existentes en las cajas de texto a la variable dts a traves de sus getters
                     dts.gid_categoria = tbid_categoria.Text
                     dts.gnombre_categoria = tbNombreCategoria.Text
+                    dts.gcodigo_categoria = tbCodigoCategoria.Text
 
                     'Se verifica que la funcion insertar devuelva Verdadero, lo cual significa que se registro correctamente.
                     If func.editar(dts) Then
@@ -276,12 +270,21 @@ Public Class frmCategoria
         Call limpiar()
     End Sub
 
+
     Private Sub dgvListadoClientes_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvListadoCategorias.CellClick
         tbid_categoria.Text = dgvListadoCategorias.SelectedCells.Item(1).Value
         tbNombreCategoria.Text = dgvListadoCategorias.SelectedCells.Item(2).Value
+        tbCodigoCategoria.Text = dgvListadoCategorias.SelectedCells.Item(3).Value
         btnGuardar.Visible = False
         btnEditar.Visible = True
     End Sub
 
-
+    Private Sub tbCodigoCategoria_Validating(sender As Object, e As CancelEventArgs) Handles tbCodigoCategoria.Validating
+        'Permite validar que el campo Codigo de categoria no este vacio
+        If DirectCast(sender, TextBox).Text.Length > 0 Then
+            Me.errorIcono.SetError(sender, "")
+        Else
+            Me.errorIcono.SetError(sender, "Ingrese el codigo de categoria por favor, Este dato es obligatorio")
+        End If
+    End Sub
 End Class
