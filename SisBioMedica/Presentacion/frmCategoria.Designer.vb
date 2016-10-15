@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmCategoria
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,11 +20,10 @@ Partial Class frmCategoria
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCategoria))
-        Me.btnNuevo = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.chbEliminar = New System.Windows.Forms.CheckBox()
         Me.btnBuscar = New System.Windows.Forms.Button()
@@ -34,14 +33,7 @@ Partial Class frmCategoria
         Me.dgvListadoCategorias = New System.Windows.Forms.DataGridView()
         Me.Eliminar = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.errorIcono = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.btnEliminar = New System.Windows.Forms.Button()
-        Me.btnCerrar = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.btnCancelar = New System.Windows.Forms.Button()
-        Me.btnEditar = New System.Windows.Forms.Button()
-        Me.btnGuardar = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.imgbxLogo = New System.Windows.Forms.PictureBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.tbCodigoCategoria = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -49,30 +41,21 @@ Partial Class frmCategoria
         Me.tbid_categoria = New System.Windows.Forms.TextBox()
         Me.tbNombreCategoria = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.btnNuevo = New System.Windows.Forms.Button()
+        Me.btnEliminar = New System.Windows.Forms.Button()
+        Me.btnCerrar = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.btnCancelar = New System.Windows.Forms.Button()
+        Me.btnEditar = New System.Windows.Forms.Button()
+        Me.btnGuardar = New System.Windows.Forms.Button()
+        Me.imgbxLogo = New System.Windows.Forms.PictureBox()
         Me.GroupBox3.SuspendLayout()
         CType(Me.dgvListadoCategorias, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.errorIcono, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.imgbxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'btnNuevo
-        '
-        Me.btnNuevo.BackColor = System.Drawing.Color.White
-        Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnNuevo.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.btnNuevo.FlatAppearance.BorderSize = 0
-        Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnNuevo.Font = New System.Drawing.Font("Glober Bold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNuevo.Image = Global.SisBioMedica.My.Resources.Resources.new_24
-        Me.btnNuevo.Location = New System.Drawing.Point(42, 508)
-        Me.btnNuevo.Name = "btnNuevo"
-        Me.btnNuevo.Size = New System.Drawing.Size(70, 70)
-        Me.btnNuevo.TabIndex = 33
-        Me.btnNuevo.Text = "Nuevo"
-        Me.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
-        Me.btnNuevo.UseVisualStyleBackColor = False
         '
         'GroupBox3
         '
@@ -136,11 +119,11 @@ Partial Class frmCategoria
         '
         'cbCampo
         '
-        Me.cbCampo.AutoCompleteCustomSource.AddRange(New String() {"id_categoria", "nombre_categoria", "codigo_categoria"})
+        Me.cbCampo.AutoCompleteCustomSource.AddRange(New String() {"codigo_estudio", "codigo_categoria", "nombre_estudio", "nombre_categoria"})
         Me.cbCampo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.cbCampo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cbCampo.FormattingEnabled = True
-        Me.cbCampo.Items.AddRange(New Object() {"id_categoria", "nombre_categoria", "codigo_categoria"})
+        Me.cbCampo.Items.AddRange(New Object() {"codigo_estudio", "codigo_categoria", "nombre_estudio", "nombre_categoria"})
         Me.cbCampo.Location = New System.Drawing.Point(5, 28)
         Me.cbCampo.Name = "cbCampo"
         Me.cbCampo.Size = New System.Drawing.Size(168, 27)
@@ -170,6 +153,110 @@ Partial Class frmCategoria
         'errorIcono
         '
         Me.errorIcono.ContainerControl = Me
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Glober Light", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.Label2.Location = New System.Drawing.Point(8, 119)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(148, 19)
+        Me.Label2.TabIndex = 0
+        Me.Label2.Text = "Código de Categoria"
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.tbCodigoCategoria)
+        Me.GroupBox1.Controls.Add(Me.Label3)
+        Me.GroupBox1.Controls.Add(Me.Label10)
+        Me.GroupBox1.Controls.Add(Me.tbid_categoria)
+        Me.GroupBox1.Controls.Add(Me.tbNombreCategoria)
+        Me.GroupBox1.Controls.Add(Me.Label2)
+        Me.GroupBox1.Font = New System.Drawing.Font("Glober Bold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.GroupBox1.Location = New System.Drawing.Point(17, 117)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(470, 380)
+        Me.GroupBox1.TabIndex = 29
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Detalle de Categoria"
+        '
+        'tbCodigoCategoria
+        '
+        Me.tbCodigoCategoria.Location = New System.Drawing.Point(166, 111)
+        Me.tbCodigoCategoria.MaxLength = 50
+        Me.tbCodigoCategoria.Name = "tbCodigoCategoria"
+        Me.tbCodigoCategoria.Size = New System.Drawing.Size(287, 27)
+        Me.tbCodigoCategoria.TabIndex = 23
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Glober Light", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.Label3.Location = New System.Drawing.Point(8, 172)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(156, 19)
+        Me.Label3.TabIndex = 22
+        Me.Label3.Text = "Nombre de Categoria"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Glober Light", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.Label10.Location = New System.Drawing.Point(8, 70)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(81, 19)
+        Me.Label10.TabIndex = 21
+        Me.Label10.Text = "ID Estudio"
+        '
+        'tbid_categoria
+        '
+        Me.tbid_categoria.Enabled = False
+        Me.tbid_categoria.Location = New System.Drawing.Point(166, 58)
+        Me.tbid_categoria.MaxLength = 50
+        Me.tbid_categoria.Name = "tbid_categoria"
+        Me.tbid_categoria.Size = New System.Drawing.Size(287, 27)
+        Me.tbid_categoria.TabIndex = 20
+        '
+        'tbNombreCategoria
+        '
+        Me.tbNombreCategoria.Location = New System.Drawing.Point(166, 164)
+        Me.tbNombreCategoria.MaxLength = 50
+        Me.tbNombreCategoria.Name = "tbNombreCategoria"
+        Me.tbNombreCategoria.Size = New System.Drawing.Size(287, 27)
+        Me.tbNombreCategoria.TabIndex = 8
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.Label1.Font = New System.Drawing.Font("Roboto", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(12, 65)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(270, 28)
+        Me.Label1.TabIndex = 28
+        Me.Label1.Text = "CATEGORIAS DE ESTUDIOS"
+        '
+        'btnNuevo
+        '
+        Me.btnNuevo.BackColor = System.Drawing.Color.White
+        Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnNuevo.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnNuevo.FlatAppearance.BorderSize = 0
+        Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnNuevo.Font = New System.Drawing.Font("Glober Bold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNuevo.Image = Global.SisBioMedica.My.Resources.Resources.new_24
+        Me.btnNuevo.Location = New System.Drawing.Point(42, 508)
+        Me.btnNuevo.Name = "btnNuevo"
+        Me.btnNuevo.Size = New System.Drawing.Size(70, 70)
+        Me.btnNuevo.TabIndex = 33
+        Me.btnNuevo.Text = "Nuevo"
+        Me.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
+        Me.btnNuevo.UseVisualStyleBackColor = False
         '
         'btnEliminar
         '
@@ -269,17 +356,6 @@ Partial Class frmCategoria
         Me.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
         Me.btnGuardar.UseVisualStyleBackColor = False
         '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Glober Light", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(204, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(8, 114)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(148, 19)
-        Me.Label2.TabIndex = 0
-        Me.Label2.Text = "Código de Categoria"
-        '
         'imgbxLogo
         '
         Me.imgbxLogo.Image = Global.SisBioMedica.My.Resources.Resources.logobiom
@@ -289,82 +365,6 @@ Partial Class frmCategoria
         Me.imgbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.imgbxLogo.TabIndex = 32
         Me.imgbxLogo.TabStop = False
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.tbCodigoCategoria)
-        Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Controls.Add(Me.Label10)
-        Me.GroupBox1.Controls.Add(Me.tbid_categoria)
-        Me.GroupBox1.Controls.Add(Me.tbNombreCategoria)
-        Me.GroupBox1.Controls.Add(Me.Label2)
-        Me.GroupBox1.Font = New System.Drawing.Font("Glober Bold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(204, Byte), Integer))
-        Me.GroupBox1.Location = New System.Drawing.Point(17, 117)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(470, 380)
-        Me.GroupBox1.TabIndex = 29
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Detalle de Categoria"
-        '
-        'tbCodigoCategoria
-        '
-        Me.tbCodigoCategoria.Location = New System.Drawing.Point(166, 106)
-        Me.tbCodigoCategoria.MaxLength = 50
-        Me.tbCodigoCategoria.Name = "tbCodigoCategoria"
-        Me.tbCodigoCategoria.Size = New System.Drawing.Size(287, 27)
-        Me.tbCodigoCategoria.TabIndex = 23
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Glober Light", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(204, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(8, 162)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(156, 19)
-        Me.Label3.TabIndex = 22
-        Me.Label3.Text = "Nombre de Categoria"
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Glober Light", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(204, Byte), Integer))
-        Me.Label10.Location = New System.Drawing.Point(8, 66)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(94, 19)
-        Me.Label10.TabIndex = 21
-        Me.Label10.Text = "ID Categoria"
-        '
-        'tbid_categoria
-        '
-        Me.tbid_categoria.Enabled = False
-        Me.tbid_categoria.Location = New System.Drawing.Point(166, 58)
-        Me.tbid_categoria.MaxLength = 50
-        Me.tbid_categoria.Name = "tbid_categoria"
-        Me.tbid_categoria.Size = New System.Drawing.Size(287, 27)
-        Me.tbid_categoria.TabIndex = 20
-        '
-        'tbNombreCategoria
-        '
-        Me.tbNombreCategoria.Location = New System.Drawing.Point(166, 154)
-        Me.tbNombreCategoria.MaxLength = 50
-        Me.tbNombreCategoria.Name = "tbNombreCategoria"
-        Me.tbNombreCategoria.Size = New System.Drawing.Size(287, 27)
-        Me.tbNombreCategoria.TabIndex = 8
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(204, Byte), Integer))
-        Me.Label1.Font = New System.Drawing.Font("Roboto", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(12, 65)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(270, 28)
-        Me.Label1.TabIndex = 28
-        Me.Label1.Text = "CATEGORIAS DE ESTUDIOS"
         '
         'frmCategoria
         '
@@ -391,10 +391,10 @@ Partial Class frmCategoria
         Me.GroupBox3.PerformLayout()
         CType(Me.dgvListadoCategorias, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.errorIcono, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.imgbxLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.imgbxLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

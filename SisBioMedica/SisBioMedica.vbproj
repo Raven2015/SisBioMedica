@@ -74,7 +74,8 @@
   <ItemGroup>
     <Compile Include="Datos\conexion.vb" />
     <Compile Include="Datos\fCategoria.vb" />
-    <Compile Include="Datos\fcliente.vb" />
+    <Compile Include="Datos\fCliente.vb" />
+    <Compile Include="Datos\fEstudio.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +85,7 @@
     </Compile>
     <Compile Include="Logica\vCategoria.vb" />
     <Compile Include="Logica\vCliente.vb" />
+    <Compile Include="Logica\vEstudio.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -111,6 +113,12 @@
     <Compile Include="Presentacion\frmCliente.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Presentacion\frmEstudio.Designer.vb">
+      <DependentUpon>frmEstudio.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\frmEstudio.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
@@ -127,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\frmCliente.resx">
       <DependentUpon>frmCliente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\frmEstudio.resx">
+      <DependentUpon>frmEstudio.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

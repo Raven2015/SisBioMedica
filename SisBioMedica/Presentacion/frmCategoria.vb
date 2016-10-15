@@ -70,7 +70,7 @@ Public Class frmCategoria
             If dv.Count <> 0 Then
                 lkInexistente.Visible = False
                 dgvListadoCategorias.DataSource = dv
-                'ocultar_columnas()
+                ocultar_columnas()
             Else
                 lkInexistente.Visible = True
                 dgvListadoCategorias.DataSource = Nothing
@@ -115,7 +115,7 @@ Public Class frmCategoria
     End Sub
 
 
-    Private Sub tbNombres_Validating(sender As Object, e As CancelEventArgs) Handles tbNombreCategoria.Validating
+    Private Sub tbNombres_Validating(sender As Object, e As CancelEventArgs) 
         'Permite validar que el campo nombres no este vacio
         If DirectCast(sender, TextBox).Text.Length > 0 Then
             Me.errorIcono.SetError(sender, "")
@@ -134,7 +134,7 @@ Public Class frmCategoria
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         'Al presionar el boton guardar se ejecutan una serie de acciones que permiten crear un nuevo registro en la base de datos.
         'PRIMERO: Se verifica que las cajas de texto imprescindibles no esten vacias, que la fecha no sea la actual y otros.
-        If Me.ValidateChildren = True And tbNombreCategoria.Text <> "" And tbCodigoCategoria.Text <> "" Then
+        If Me.ValidateChildren = True And tbCodigoCategoria.Text <> "" And tbCodigoCategoria.Text <> "" Then
             Try
                 'Se crea una nueva instancia de la clase VCategoria
                 Dim dts As New vCategoria
@@ -142,7 +142,7 @@ Public Class frmCategoria
                 Dim func As New fCategoria
 
                 'Se pasan los datos existentes en las cajas de texto a la variable dts a traves de sus getters
-                dts.gnombre_categoria = tbNombreCategoria.Text
+                dts.gnombre_categoria = tbCodigoCategoria.Text
                 dts.gcodigo_categoria = tbCodigoCategoria.Text
 
                 'Se verifica que la funcion insertar devuelva Verdadero, lo cual significa que se registro correctamente.
@@ -171,7 +171,7 @@ Public Class frmCategoria
         'Limpia lo svalores de las cajas de texto.
         btnGuardar.Visible = True
         btnEditar.Visible = False
-        tbNombreCategoria.Text = ""
+        tbCodigoCategoria.Text = ""
         tbid_categoria.Text = ""
         tbCodigoCategoria.Text = ""
     End Sub
@@ -190,7 +190,7 @@ Public Class frmCategoria
 
             'Al presionar el boton editar se ejecutan una serie de acciones que permiten crear un nuevo registro en la base de datos.
             'PRIMERO: Se verifica que las cajas de texto imprescindibles no esten vacias, que la fecha no sea la actual y otros.
-            If Me.ValidateChildren = True And tbNombreCategoria.Text <> "" And tbCodigoCategoria.Text <> "" Then
+            If Me.ValidateChildren = True And tbCodigoCategoria.Text <> "" And tbCodigoCategoria.Text <> "" Then
                 Try
                     'Se crea una nueva instancia de la clase VCategoria
                     Dim dts As New vCategoria
@@ -199,7 +199,7 @@ Public Class frmCategoria
 
                     'Se pasan los datos existentes en las cajas de texto a la variable dts a traves de sus getters
                     dts.gid_categoria = tbid_categoria.Text
-                    dts.gnombre_categoria = tbNombreCategoria.Text
+                    dts.gnombre_categoria = tbCodigoCategoria.Text
                     dts.gcodigo_categoria = tbCodigoCategoria.Text
 
                     'Se verifica que la funcion insertar devuelva Verdadero, lo cual significa que se registro correctamente.
@@ -273,7 +273,7 @@ Public Class frmCategoria
 
     Private Sub dgvListadoClientes_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvListadoCategorias.CellClick
         tbid_categoria.Text = dgvListadoCategorias.SelectedCells.Item(1).Value
-        tbNombreCategoria.Text = dgvListadoCategorias.SelectedCells.Item(2).Value
+        tbCodigoCategoria.Text = dgvListadoCategorias.SelectedCells.Item(2).Value
         tbCodigoCategoria.Text = dgvListadoCategorias.SelectedCells.Item(3).Value
         btnGuardar.Visible = False
         btnEditar.Visible = True
