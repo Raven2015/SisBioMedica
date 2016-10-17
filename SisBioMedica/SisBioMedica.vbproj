@@ -119,6 +119,12 @@
     <Compile Include="Presentacion\frmEstudio.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Presentacion\frmEstudioX.Designer.vb">
+      <DependentUpon>frmEstudioX.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\frmEstudioX.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
@@ -138,6 +144,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\frmEstudio.resx">
       <DependentUpon>frmEstudio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\frmEstudioX.resx">
+      <DependentUpon>frmEstudioX.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

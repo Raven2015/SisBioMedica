@@ -134,7 +134,7 @@ Public Class frmCategoria
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         'Al presionar el boton guardar se ejecutan una serie de acciones que permiten crear un nuevo registro en la base de datos.
         'PRIMERO: Se verifica que las cajas de texto imprescindibles no esten vacias, que la fecha no sea la actual y otros.
-        If Me.ValidateChildren = True And tbCodigoCategoria.Text <> "" And tbCodigoCategoria.Text <> "" Then
+        If Me.ValidateChildren = True And tbCodigoCategoria.Text <> "" And tbNombreCategoria.Text <> "" Then
             Try
                 'Se crea una nueva instancia de la clase VCategoria
                 Dim dts As New vCategoria
@@ -142,7 +142,7 @@ Public Class frmCategoria
                 Dim func As New fCategoria
 
                 'Se pasan los datos existentes en las cajas de texto a la variable dts a traves de sus getters
-                dts.gnombre_categoria = tbCodigoCategoria.Text
+                dts.gnombre_categoria = tbNombreCategoria.Text
                 dts.gcodigo_categoria = tbCodigoCategoria.Text
 
                 'Se verifica que la funcion insertar devuelva Verdadero, lo cual significa que se registro correctamente.
@@ -173,7 +173,7 @@ Public Class frmCategoria
         btnEditar.Visible = False
         tbCodigoCategoria.Text = ""
         tbid_categoria.Text = ""
-        tbCodigoCategoria.Text = ""
+        tbNombreCategoria.Text = ""
     End Sub
 
     Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
@@ -190,7 +190,7 @@ Public Class frmCategoria
 
             'Al presionar el boton editar se ejecutan una serie de acciones que permiten crear un nuevo registro en la base de datos.
             'PRIMERO: Se verifica que las cajas de texto imprescindibles no esten vacias, que la fecha no sea la actual y otros.
-            If Me.ValidateChildren = True And tbCodigoCategoria.Text <> "" And tbCodigoCategoria.Text <> "" Then
+            If Me.ValidateChildren = True And tbCodigoCategoria.Text <> "" And tbNombreCategoria.Text <> "" Then
                 Try
                     'Se crea una nueva instancia de la clase VCategoria
                     Dim dts As New vCategoria
@@ -199,8 +199,9 @@ Public Class frmCategoria
 
                     'Se pasan los datos existentes en las cajas de texto a la variable dts a traves de sus getters
                     dts.gid_categoria = tbid_categoria.Text
-                    dts.gnombre_categoria = tbCodigoCategoria.Text
+                    dts.gnombre_categoria = tbNombreCategoria.Text
                     dts.gcodigo_categoria = tbCodigoCategoria.Text
+
 
                     'Se verifica que la funcion insertar devuelva Verdadero, lo cual significa que se registro correctamente.
                     If func.editar(dts) Then
@@ -273,8 +274,8 @@ Public Class frmCategoria
 
     Private Sub dgvListadoClientes_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvListadoCategorias.CellClick
         tbid_categoria.Text = dgvListadoCategorias.SelectedCells.Item(1).Value
-        tbCodigoCategoria.Text = dgvListadoCategorias.SelectedCells.Item(2).Value
         tbCodigoCategoria.Text = dgvListadoCategorias.SelectedCells.Item(3).Value
+        tbNombreCategoria.Text = dgvListadoCategorias.SelectedCells.Item(2).Value
         btnGuardar.Visible = False
         btnEditar.Visible = True
     End Sub
@@ -285,6 +286,15 @@ Public Class frmCategoria
             Me.errorIcono.SetError(sender, "")
         Else
             Me.errorIcono.SetError(sender, "Ingrese el codigo de categoria por favor, Este dato es obligatorio")
+        End If
+    End Sub
+
+    Private Sub dgvListadoCategorias_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvListadoCategorias.CellDoubleClick
+        If tbFlag.Text = "1" Then
+            frmEstudio.tbid_categoria.Text = dgvListadoCategorias.SelectedCells.Item(1).Value
+            frmEstudio.tbNombreCategoria.Text = dgvListadoCategorias.SelectedCells.Item(2).Value
+            frmEstudio.tbCodigoCategoria.Text = dgvListadoCategorias.SelectedCells.Item(3).Value
+            Me.Close()
         End If
     End Sub
 End Class

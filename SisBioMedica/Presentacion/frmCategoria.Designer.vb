@@ -49,6 +49,7 @@ Partial Class frmCategoria
         Me.btnEditar = New System.Windows.Forms.Button()
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.imgbxLogo = New System.Windows.Forms.PictureBox()
+        Me.tbFlag = New System.Windows.Forms.TextBox()
         Me.GroupBox3.SuspendLayout()
         CType(Me.dgvListadoCategorias, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.errorIcono, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -167,6 +168,7 @@ Partial Class frmCategoria
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.tbFlag)
         Me.GroupBox1.Controls.Add(Me.tbCodigoCategoria)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label10)
@@ -366,6 +368,14 @@ Partial Class frmCategoria
         Me.imgbxLogo.TabIndex = 32
         Me.imgbxLogo.TabStop = False
         '
+        'tbFlag
+        '
+        Me.tbFlag.Location = New System.Drawing.Point(433, 353)
+        Me.tbFlag.Name = "tbFlag"
+        Me.tbFlag.Size = New System.Drawing.Size(37, 27)
+        Me.tbFlag.TabIndex = 24
+        Me.tbFlag.Text = "0"
+        '
         'frmCategoria
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -424,4 +434,5 @@ Partial Class frmCategoria
     Friend WithEvents Label1 As Label
     Friend WithEvents tbCodigoCategoria As TextBox
     Friend WithEvents Label3 As Label
+    Friend WithEvents tbFlag As TextBox
 End Class

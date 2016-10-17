@@ -61,7 +61,7 @@
 
     End Sub
 
-    Public Sub New(ByVal id_estudio As Integer, ByVal id_categoria As Integer, ByVal nombre_estudio As String, ByVal codigo_estudio As String, ByVal precio As Decimal, ByVal descuento As Decimal)
+    Public Sub New(ByVal id_estudio As Integer, ByVal id_categoria As Integer, ByVal nombre_estudio As String, ByVal codigo_estudio As String, ByVal precio As Decimal, ByVal descuento As Decimal, ByVal codigo_categoria As String)
         gid_estudio = id_estudio
         gid_categoria = id_categoria
         gnombre_estudio = nombre_estudio
