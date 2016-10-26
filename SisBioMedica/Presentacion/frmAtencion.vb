@@ -21,13 +21,16 @@
         'Limpia lo svalores de las cajas de texto.
         btnGuardarEstudio.Visible = True
         btnEditar.Visible = False
-        tbid_estudio.Text = ""
-        tbNombreEstudio.Text = ""
-        tbCodigoCategoria.Text = ""
-        tbPrecio.Text = "0"
-        tbCodigoEstudio.Text = ""
-        tbDescuento.Text = "0"
-        tbNombreCategoria.Text = ""
+        tbid_atencion.Text = ""
+        tbCodigoCliente.Text = ""
+        tbCICliente.Text = ""
+        tbApellidoCliente.Text = ""
+        tbNombreCliente.Text = ""
+        tbSexoCliente.Text = ""
+        tbDireccion.Text = ""
+        tbCelular.Text = ""
+        tbMedicoRemitente.Text = ""
+        tbNumComprobante.Text = ""
 
     End Sub
 
@@ -36,7 +39,7 @@
 
         Try
 
-            Dim func As New fEstudio 'Se crea una instancia de la clase fCategoria.
+            Dim func As New fAtencion 'Se crea una instancia de la clase fCategoria.
             dt = func.mostrar 'Se llama al procedimiento mostrar de la clase fCategoria
             dgvListadoAtenciones.Columns.Item("Eliminar").Visible = False 'Ocultamos la columna eliminar que se acaba de crear
 
@@ -56,7 +59,7 @@
         End Try
         btnNuevo.Visible = True 'Se muestra el boton Nuevo
         btnEditar.Visible = False 'Se oculta el boton editar
-        tbid_categoria.Visible = False
+        tbid_atencion.Visible = False
 
         buscar()
     End Sub
@@ -116,30 +119,31 @@
     Private Sub btnGuardarEstudio_Click(sender As Object, e As EventArgs) Handles btnGuardarEstudio.Click
         'Al presionar el boton guardar se ejecutan una serie de acciones que permiten crear un nuevo registro en la base de datos.
         'PRIMERO: Se verifica que las cajas de texto imprescindibles no esten vacias, que la fecha no sea la actual y otros.
-        If Me.ValidateChildren = True And tbNombreEstudio.Text <> "" And tbCodigoEstudio.Text <> "" And tbid_categoria.Text <> "" And tbCodigoEstudio.Text <> "" Then
+        If Me.ValidateChildren = True And tbNombreCliente.Text <> "" And tbCodigoCliente.Text <> "" And tbNumComprobante.Text <> "" Then
             Try
                 'Se crea una nueva instancia de la clase VCategoria
-                Dim dts As New vEstudio
+                Dim dts As New vAtencion
                 'Se crea una nueva instancia de la clase fCategoria
-                Dim func As New fEstudio
+                Dim func As New fAtencion
 
                 'Se pasan los datos existentes en las cajas de texto a la variable dts a traves de sus getters
-                dts.gnombre_estudio = tbNombreEstudio.Text
+                dts.gid_cliente = tbCodigoCliente.Text
                 'dts.gcodigo_categoria = tbCodigoCategoria.Text
-                dts.gprecio = tbPrecio.Text
-                dts.gid_categoria = tbid_categoria.Text
-                dts.gdescuento = tbDescuento.Text
-                dts.gcodigo_estudio = tbCodigoEstudio.Text
+                dts.gfecha = dtpFechaAtencion.Text
+                dts.gtipo_documento = "Orden de Atencion"
+                dts.gnumero_documento = tbid_atencion.Text
+                dts.gdoctor_remitente = tbMedicoRemitente.Text
 
                 'Se verifica que la funcion insertar devuelva Verdadero, lo cual significa que se registro correctamente.
                 If func.insertar(dts) Then
                     'Se muestra un dialogo de informacion, de registro existoso
-                    MessageBox.Show("Estudio Registrado Correctamente", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    MessageBox.Show("Reporte Registrado Correctamente. Seleccion los Estudios requeridos", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     mostrar()
                     limpiar()
+                    cargar_detalle()
                 Else
                     'Se muestra un dialogo de alerta, de registro incorrecto
-                    MessageBox.Show("Estudio no Registrado, Intente de Nuevo", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MessageBox.Show("Reporte no Registrado, Intente de Nuevo", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     mostrar()
                     limpiar()
                 End If
@@ -162,7 +166,7 @@
 
             'Al presionar el boton editar se ejecutan una serie de acciones que permiten crear un nuevo registro en la base de datos.
             'PRIMERO: Se verifica que las cajas de texto imprescindibles no esten vacias, que la fecha no sea la actual y otros.
-            If Me.ValidateChildren = True And tbNombreEstudio.Text <> "" And tbCodigoEstudio.Text <> "" And tbCodigoCategoria.Text <> "" And tbCodigoEstudio.Text <> "" Then
+            If Me.ValidateChildren = True And tbNombreEstudio.Text <> "" And tbCodigoCliente.Text <> "" And tbMedicoRemitente.Text <> "" And tbCodigoCliente.Text <> "" Then
                 Try
                     'Se crea una nueva instancia de la clase VCategoria
                     Dim dts As New vEstudio
@@ -170,11 +174,11 @@
                     Dim func As New fEstudio
 
                     'Se pasan los datos existentes en las cajas de texto a la variable dts a traves de sus getters
-                    dts.gid_estudio = tbid_estudio.Text
+                    dts.gid_estudio = tbid_atencion.Text
                     dts.gnombre_estudio = tbNombreEstudio.Text
                     dts.gid_categoria = tbid_categoria.Text
-                    dts.gprecio = tbPrecio.Text
-                    dts.gcodigo_estudio = tbCodigoEstudio.Text
+                    dts.gprecio = tbNumComprobante.Text
+                    dts.gcodigo_estudio = tbCodigoCliente.Text
                     dts.gdescuento = tbDescuento.Text
 
                     'Se verifica que la funcion insertar devuelva Verdadero, lo cual significa que se registro correctamente.
@@ -210,7 +214,7 @@
 
     '   --------------------    BOTON ELIMINAR     --------------------
 
-    Private Sub btnEliminar_Click_1(sender As Object, e As EventArgs) Handles btnEliminar.Click
+    Private Sub btnEliminar_Click_1(sender As Object, e As EventArgs)
         Dim result As DialogResult
 
         result = MessageBox.Show("Realmente desea eliminar los datos de los estudios seleccionadas?", "Eliminando Registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
@@ -243,7 +247,7 @@
 
 
     '   --------------------    BOTON BUSCAR CATEGORIA     --------------------
-    Private Sub btnBuscarCategoria_Click(sender As Object, e As EventArgs) Handles btnBuscarCategoria.Click
+    Private Sub btnBuscarCategoria_Click(sender As Object, e As EventArgs)
         frmCategoria.tbFlag.Text = "1"
         frmCategoria.ShowDialog()
     End Sub
@@ -292,13 +296,13 @@
 
     '   --------------------    CLICK EN CELDA DEL LISTADO     --------------------
     Private Sub dgvListadoEstudios_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvListadoAtenciones.CellClick
-        tbid_estudio.Text = dgvListadoAtenciones.SelectedCells.Item(1).Value
+        tbid_atencion.Text = dgvListadoAtenciones.SelectedCells.Item(1).Value
         tbid_categoria.Text = dgvListadoAtenciones.SelectedCells.Item(2).Value
-        tbCodigoCategoria.Text = dgvListadoAtenciones.SelectedCells.Item(3).Value
+        tbMedicoRemitente.Text = dgvListadoAtenciones.SelectedCells.Item(3).Value
         tbNombreCategoria.Text = dgvListadoAtenciones.SelectedCells.Item(4).Value
         tbNombreEstudio.Text = dgvListadoAtenciones.SelectedCells.Item(5).Value
-        tbCodigoEstudio.Text = dgvListadoAtenciones.SelectedCells.Item(6).Value
-        tbPrecio.Text = dgvListadoAtenciones.SelectedCells.Item(7).Value
+        tbCodigoCliente.Text = dgvListadoAtenciones.SelectedCells.Item(6).Value
+        tbNumComprobante.Text = dgvListadoAtenciones.SelectedCells.Item(7).Value
         tbDescuento.Text = dgvListadoAtenciones.SelectedCells.Item(8).Value
         btnGuardarEstudio.Visible = False
         btnEditar.Visible = True
@@ -318,42 +322,20 @@
     '
 
 
-    '   --------------------    VALIDACION CODIGO_ESTUDIO     --------------------
-    Private Sub tbCodigoEstudio_Validating(sender As Object, e As CancelEventArgs) Handles tbCodigoEstudio.Validating
-        'Permite validar que el campo Codigo de categoria no este vacio
-        If DirectCast(sender, TextBox).Text.Length > 0 Then
-            Me.errorIcono.SetError(sender, "")
-        Else
-            Me.errorIcono.SetError(sender, "Ingrese el codigo del estudio por favor, Este dato es obligatorio")
-        End If
-    End Sub
-
-
-    '   --------------------    VALIDACION VALIDACION NOMBRE_ESTUDIO     --------------------
-    Private Sub tbNombres_Validating(sender As Object, e As CancelEventArgs) Handles tbNombreEstudio.Validating
-        'Permite validar que el campo nombres no este vacio
-        If DirectCast(sender, TextBox).Text.Length > 0 Then
-            Me.errorIcono.SetError(sender, "")
-        Else
-            Me.errorIcono.SetError(sender, "Ingrese el nombre del estudio por favor, Este dato es obligatorio")
-        End If
-    End Sub
-
-    Private Sub frmEstudio_Load_1(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
-
-    '   --------------------    VALIDACION VALIDACION PRECIO     --------------------
-    Private Sub tbPrecio_Validating(sender As Object, e As CancelEventArgs) Handles tbPrecio.Validating
-        'Permite validar que el campo nombres no este vacio
-        If DirectCast(sender, TextBox).Text.Length > 0 Then
-            Me.errorIcono.SetError(sender, "")
-        Else
-            Me.errorIcono.SetError(sender, "Ingrese el precio del estudio por favor, Este dato es obligatorio")
-        End If
-    End Sub
     '   &&&&&&&&&&&&&&&&&&&&    FIN METODOS DE VALIDACION     &&&&&&&&&&&&&&&&&&&&
 
+
+
+
+
+
+    '   &&&&&&&&&&&&&&&&&&&&    METODOS PARA CARGAR LOS ESTUDIOS     &&&&&&&&&&&&&&&&&&&&
+
+    Private Sub cargar_detalle()
+
+    End Sub
+
+    '   &&&&&&&&&&&&&&&&&&&&    FIN METODO CARGAR     &&&&&&&&&&&&&&&&&&&&
 
 
 
@@ -373,6 +355,17 @@
 
     End Sub
 
+    Private Sub tbBusca_TextChanged(sender As Object, e As EventArgs) Handles tbBusca.TextChanged
+        buscar()
+    End Sub
+
+    Private Sub tbCodigoEstudio_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles tbCodigoCliente.Validating
+
+    End Sub
+
+    Private Sub tbNombres_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs)
+
+    End Sub
 
     Private Sub PictureBox1_MouseMove(sender As Object, e As MouseEventArgs) Handles PictureBox1.MouseMove
         If mover Then
