@@ -123,10 +123,10 @@
     <Compile Include="Presentacion\frmCliente.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentacion\frmDetalleVenta.Designer.vb">
-      <DependentUpon>frmDetalleVenta.vb</DependentUpon>
+    <Compile Include="Presentacion\frmDetalleAtencion.Designer.vb">
+      <DependentUpon>frmDetalleAtencion.vb</DependentUpon>
     </Compile>
-    <Compile Include="Presentacion\frmDetalleVenta.vb">
+    <Compile Include="Presentacion\frmDetalleAtencion.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Presentacion\frmEstudio.Designer.vb">
@@ -155,8 +155,8 @@
     <EmbeddedResource Include="Presentacion\frmCliente.resx">
       <DependentUpon>frmCliente.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentacion\frmDetalleVenta.resx">
-      <DependentUpon>frmDetalleVenta.vb</DependentUpon>
+    <EmbeddedResource Include="Presentacion\frmDetalleAtencion.resx">
+      <DependentUpon>frmDetalleAtencion.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\frmEstudio.resx">
       <DependentUpon>frmEstudio.vb</DependentUpon>

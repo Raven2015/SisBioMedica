@@ -161,25 +161,25 @@
     Private Sub btnEditar_Click_1(sender As Object, e As EventArgs) Handles btnEditar.Click
         Dim result As DialogResult
 
-        result = MessageBox.Show("Realmente desea editar los datos del Estudio?", "Modificando Registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
+        result = MessageBox.Show("Realmente desea editar los datos del Reporte?", "Modificando Registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
         If result = DialogResult.OK Then
 
             'Al presionar el boton editar se ejecutan una serie de acciones que permiten crear un nuevo registro en la base de datos.
             'PRIMERO: Se verifica que las cajas de texto imprescindibles no esten vacias, que la fecha no sea la actual y otros.
-            If Me.ValidateChildren = True And tbNombreEstudio.Text <> "" And tbCodigoCliente.Text <> "" And tbMedicoRemitente.Text <> "" And tbCodigoCliente.Text <> "" Then
+            If Me.ValidateChildren = True And tbCodigoCliente.Text <> "" And tbCodigoCliente.Text <> "" And tbid_atencion.Text <> "" Then
                 Try
                     'Se crea una nueva instancia de la clase VCategoria
-                    Dim dts As New vEstudio
+                    Dim dts As New vAtencion
                     'Se crea una nueva instancia de la clase fCategoria
-                    Dim func As New fEstudio
+                    Dim func As New fAtencion
 
                     'Se pasan los datos existentes en las cajas de texto a la variable dts a traves de sus getters
-                    dts.gid_estudio = tbid_atencion.Text
-                    dts.gnombre_estudio = tbNombreEstudio.Text
-                    dts.gid_categoria = tbid_categoria.Text
-                    dts.gprecio = tbNumComprobante.Text
-                    dts.gcodigo_estudio = tbCodigoCliente.Text
-                    dts.gdescuento = tbDescuento.Text
+                    'dts.gid_estudio = tbid_atencion.Text
+                    'dts.gnombre_estudio = tbNombreEstudio.Text
+                    'dts.gid_categoria = tbid_categoria.Text
+                    'dts.gprecio = tbNumComprobante.Text
+                    'dts.gcodigo_estudio = tbCodigoCliente.Text
+                    'dts.gdescuento = tbDescuento.Text
 
                     'Se verifica que la funcion insertar devuelva Verdadero, lo cual significa que se registro correctamente.
                     If func.editar(dts) Then
@@ -294,16 +294,23 @@
         End If
     End Sub
 
+
+
     '   --------------------    CLICK EN CELDA DEL LISTADO     --------------------
     Private Sub dgvListadoEstudios_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvListadoAtenciones.CellClick
         tbid_atencion.Text = dgvListadoAtenciones.SelectedCells.Item(1).Value
-        tbid_categoria.Text = dgvListadoAtenciones.SelectedCells.Item(2).Value
+        tbCodigoCliente.Text = dgvListadoAtenciones.SelectedCells.Item(2).Value
+        tbCICliente.Text = dgvListadoAtenciones.SelectedCells.Item(5).Value
+        tbNombreCliente.Text = dgvListadoAtenciones.SelectedCells.Item(3).Value
+        tbApellidoCliente.Text = dgvListadoAtenciones.SelectedCells.Item(4).Value
+        tbSexoCliente.Text = dgvListadoAtenciones.SelectedCells.Item(10).Value
+        tbDireccion = dgvListadoAtenciones.SelectedCells.Item(7).Value
+        tbCelular.Text = dgvListadoAtenciones.SelectedCells.Item(9).Value
         tbMedicoRemitente.Text = dgvListadoAtenciones.SelectedCells.Item(3).Value
-        tbNombreCategoria.Text = dgvListadoAtenciones.SelectedCells.Item(4).Value
-        tbNombreEstudio.Text = dgvListadoAtenciones.SelectedCells.Item(5).Value
-        tbCodigoCliente.Text = dgvListadoAtenciones.SelectedCells.Item(6).Value
         tbNumComprobante.Text = dgvListadoAtenciones.SelectedCells.Item(7).Value
-        tbDescuento.Text = dgvListadoAtenciones.SelectedCells.Item(8).Value
+        dtpFechaAtencion.Text = dgvListadoAtenciones.SelectedCells.Item(18).Value
+
+
         btnGuardarEstudio.Visible = False
         btnEditar.Visible = True
     End Sub
@@ -332,7 +339,19 @@
     '   &&&&&&&&&&&&&&&&&&&&    METODOS PARA CARGAR LOS ESTUDIOS     &&&&&&&&&&&&&&&&&&&&
 
     Private Sub cargar_detalle()
+        frmDetalleAtencion.tbid_atencion.Text = dgvListadoAtenciones.SelectedCells.Item(1).Value
+        frmDetalleAtencion.tbCodigoCliente.Text = dgvListadoAtenciones.SelectedCells.Item(2).Value
+        frmDetalleAtencion.tbCICliente.Text = dgvListadoAtenciones.SelectedCells.Item(5).Value
+        frmDetalleAtencion.tbNombreCliente.Text = dgvListadoAtenciones.SelectedCells.Item(3).Value
+        frmDetalleAtencion.tbApellidoCliente.Text = dgvListadoAtenciones.SelectedCells.Item(4).Value
+        frmDetalleAtencion.tbSexoCliente.Text = dgvListadoAtenciones.SelectedCells.Item(10).Value
+        frmDetalleAtencion.tbDireccion.Text = dgvListadoAtenciones.SelectedCells.Item(7).Value
+        frmDetalleAtencion.tbCelular.Text = dgvListadoAtenciones.SelectedCells.Item(9).Value
+        frmDetalleAtencion.tbMedicoRemitente.Text = dgvListadoAtenciones.SelectedCells.Item(15).Value
+        frmDetalleAtencion.tbNumComprobante.Text = dgvListadoAtenciones.SelectedCells.Item(16).Value
+        frmDetalleAtencion.dtpFechaAtencion.Text = dgvListadoAtenciones.SelectedCells.Item(18).Value
 
+        frmDetalleAtencion.ShowDialog()
     End Sub
 
     '   &&&&&&&&&&&&&&&&&&&&    FIN METODO CARGAR     &&&&&&&&&&&&&&&&&&&&
@@ -372,6 +391,10 @@
             'Permite mover la ventana a cualquier punto
             Me.Location = Me.PointToScreen(New Point(Me.MousePosition.X - Me.Location.X - px, Me.MousePosition.Y - Me.Location.Y - py))
         End If
+    End Sub
+
+    Private Sub dgvListadoAtenciones_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvListadoAtenciones.CellDoubleClick
+        cargar_detalle()
     End Sub
     '   &&&&&&&&&&&&&&&&&&&&    FIN CODIGO MOVER VENTANA     &&&&&&&&&&&&&&&&&&&&
 

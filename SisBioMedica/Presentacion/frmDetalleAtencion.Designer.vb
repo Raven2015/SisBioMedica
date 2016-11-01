@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class frmDetalleVenta
+Partial Class frmDetalleAtencion
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -23,7 +23,7 @@ Partial Class frmDetalleVenta
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmDetalleVenta))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmDetalleAtencion))
         Me.btnEditar = New System.Windows.Forms.Button()
         Me.tbCelular = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -342,9 +342,9 @@ Partial Class frmDetalleVenta
         Me.Label1.ForeColor = System.Drawing.Color.White
         Me.Label1.Location = New System.Drawing.Point(12, 65)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(240, 28)
+        Me.Label1.Size = New System.Drawing.Size(190, 28)
         Me.Label1.TabIndex = 61
-        Me.Label1.Text = "REPORTE DE ATENCION"
+        Me.Label1.Text = "AÑADIR ESTUDIOS"
         '
         'btnGuardarEstudio
         '
@@ -514,7 +514,7 @@ Partial Class frmDetalleVenta
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Reporte de Atencion"
         '
-        'frmDetalleVenta
+        'frmDetalleAtencion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -532,7 +532,7 @@ Partial Class frmDetalleVenta
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "frmDetalleVenta"
+        Me.Name = "frmDetalleAtencion"
         Me.Text = "frmDetalleVenta"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.errorIcono, System.ComponentModel.ISupportInitialize).EndInit()
