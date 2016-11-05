@@ -389,4 +389,17 @@ Public Class frmCliente
         btnGuardar.Visible = False
         btnEditar.Visible = True
     End Sub
+
+    Private Sub dgvListadoClientes_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvListadoClientes.CellDoubleClick
+        If tbFlag.Text = "1" Then
+            frmAtencion.tbCodigoCliente.Text = dgvListadoClientes.SelectedCells.Item(1).Value
+            frmAtencion.tbCICliente.Text = dgvListadoClientes.SelectedCells.Item(4).Value
+            frmAtencion.tbNombreCliente.Text = dgvListadoClientes.SelectedCells.Item(2).Value
+            frmAtencion.tbApellidoCliente.Text = dgvListadoClientes.SelectedCells.Item(3).Value
+            frmAtencion.tbSexoCliente.Text = dgvListadoClientes.SelectedCells.Item(9).Value
+            frmAtencion.tbDireccion.Text = dgvListadoClientes.SelectedCells.Item(6).Value
+            frmAtencion.tbCelular.Text = dgvListadoClientes.SelectedCells.Item(8).Value
+            Me.Close()
+        End If
+    End Sub
 End Class
