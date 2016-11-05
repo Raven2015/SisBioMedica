@@ -42,7 +42,6 @@ Public Class fAtencion
             cmd.Parameters.AddWithValue("@doctor_remitente", dts.gdoctor_remitente)
             cmd.Parameters.AddWithValue("@tipo_documento", dts.gtipo_documento)
             cmd.Parameters.AddWithValue("@numero_documento", dts.gnumero_documento)
-            cmd.Parameters.AddWithValue("@descripcion", dts.gdescripcion)
 
             If cmd.ExecuteNonQuery Then
                 Return True
@@ -70,7 +69,6 @@ Public Class fAtencion
             cmd.Parameters.AddWithValue("@doctor_remitente", dts.gdoctor_remitente)
             cmd.Parameters.AddWithValue("@tipo_documento", dts.gtipo_documento)
             cmd.Parameters.AddWithValue("@numero_documento", dts.gnumero_documento)
-            cmd.Parameters.AddWithValue("@descripcion", dts.gdescripcion)
 
             If cmd.ExecuteNonQuery Then
                 Return True

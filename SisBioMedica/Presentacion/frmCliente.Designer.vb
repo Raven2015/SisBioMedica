@@ -57,6 +57,7 @@ Partial Class frmCliente
         Me.Label17 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.chbEliminar = New System.Windows.Forms.CheckBox()
+        Me.btnBuscar = New System.Windows.Forms.Button()
         Me.lkInexistente = New System.Windows.Forms.LinkLabel()
         Me.tbBuscar = New System.Windows.Forms.TextBox()
         Me.cbCampo = New System.Windows.Forms.ComboBox()
@@ -71,7 +72,7 @@ Partial Class frmCliente
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.btnNuevo = New System.Windows.Forms.Button()
         Me.imgbxLogo = New System.Windows.Forms.PictureBox()
-        Me.btnBuscar = New System.Windows.Forms.Button()
+        Me.tbFlag = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -95,6 +96,7 @@ Partial Class frmCliente
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.tbFlag)
         Me.GroupBox1.Controls.Add(Me.Label10)
         Me.GroupBox1.Controls.Add(Me.tbCodigo_Cliente)
         Me.GroupBox1.Controls.Add(Me.lbci)
@@ -440,6 +442,19 @@ Partial Class frmCliente
         Me.chbEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
         Me.chbEliminar.UseVisualStyleBackColor = True
         '
+        'btnBuscar
+        '
+        Me.btnBuscar.FlatAppearance.BorderSize = 0
+        Me.btnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White
+        Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnBuscar.Image = Global.SisBioMedica.My.Resources.Resources.search1
+        Me.btnBuscar.Location = New System.Drawing.Point(260, 68)
+        Me.btnBuscar.Name = "btnBuscar"
+        Me.btnBuscar.Size = New System.Drawing.Size(25, 24)
+        Me.btnBuscar.TabIndex = 20
+        Me.btnBuscar.UseVisualStyleBackColor = True
+        '
         'lkInexistente
         '
         Me.lkInexistente.AutoSize = True
@@ -620,18 +635,15 @@ Partial Class frmCliente
         Me.imgbxLogo.TabIndex = 17
         Me.imgbxLogo.TabStop = False
         '
-        'btnBuscar
+        'tbFlag
         '
-        Me.btnBuscar.FlatAppearance.BorderSize = 0
-        Me.btnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White
-        Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBuscar.Image = Global.SisBioMedica.My.Resources.Resources.search1
-        Me.btnBuscar.Location = New System.Drawing.Point(260, 68)
-        Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.Size = New System.Drawing.Size(25, 24)
-        Me.btnBuscar.TabIndex = 20
-        Me.btnBuscar.UseVisualStyleBackColor = True
+        Me.tbFlag.Location = New System.Drawing.Point(445, 12)
+        Me.tbFlag.MaxLength = 50
+        Me.tbFlag.Name = "tbFlag"
+        Me.tbFlag.Size = New System.Drawing.Size(25, 27)
+        Me.tbFlag.TabIndex = 22
+        Me.tbFlag.Text = "0"
+        Me.tbFlag.Visible = False
         '
         'frmCliente
         '
@@ -717,4 +729,5 @@ Partial Class frmCliente
     Friend WithEvents Label10 As Label
     Friend WithEvents tbCodigo_Cliente As TextBox
     Friend WithEvents btnEliminar As Button
+    Friend WithEvents tbFlag As TextBox
 End Class

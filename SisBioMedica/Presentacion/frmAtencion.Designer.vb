@@ -213,6 +213,7 @@ Partial Class frmAtencion
         '
         'tbCICliente
         '
+        Me.tbCICliente.Enabled = False
         Me.tbCICliente.Location = New System.Drawing.Point(235, 54)
         Me.tbCICliente.MaxLength = 50
         Me.tbCICliente.Name = "tbCICliente"
@@ -251,7 +252,6 @@ Partial Class frmAtencion
         '
         'tbMedicoRemitente
         '
-        Me.tbMedicoRemitente.Enabled = False
         Me.tbMedicoRemitente.Location = New System.Drawing.Point(165, 218)
         Me.tbMedicoRemitente.MaxLength = 50
         Me.tbMedicoRemitente.Name = "tbMedicoRemitente"

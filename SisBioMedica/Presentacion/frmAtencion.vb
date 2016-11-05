@@ -53,6 +53,7 @@
                 tbBusca.Enabled = False 'Se deshabilita el TextBox Buscar ya que no existen datos
                 dgvListadoAtenciones.ColumnHeadersVisible = False 'Se ocultan las cabeceras del DataGridView
                 lbInexistente.Visible = True 'Se muestra el linkLabel.
+
             End If
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -141,6 +142,7 @@
                     mostrar()
                     limpiar()
                     cargar_detalle()
+
                 Else
                     'Se muestra un dialogo de alerta, de registro incorrecto
                     MessageBox.Show("Reporte no Registrado, Intente de Nuevo", "Guardando registros", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -315,6 +317,12 @@
         btnEditar.Visible = True
     End Sub
 
+    '   --------------------    DOBLE CLICK EN CELDA DEL LISTADO     --------------------
+    Private Sub dgvListadoAtenciones_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvListadoAtenciones.CellDoubleClick
+        cargar_detalle()
+    End Sub
+
+
     '   &&&&&&&&&&&&&&&&&&&&    FIN METODOS LISTADO     &&&&&&&&&&&&&&&&&&&&
 
 
@@ -393,9 +401,12 @@
         End If
     End Sub
 
-    Private Sub dgvListadoAtenciones_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvListadoAtenciones.CellDoubleClick
-        cargar_detalle()
+    Private Sub btnBuscarCliente_Click(sender As Object, e As EventArgs) Handles btnBuscarCliente.Click
+        frmCliente.tbFlag.Text = "1"
+        frmCliente.ShowDialog()
     End Sub
+
+
     '   &&&&&&&&&&&&&&&&&&&&    FIN CODIGO MOVER VENTANA     &&&&&&&&&&&&&&&&&&&&
 
 End Class
