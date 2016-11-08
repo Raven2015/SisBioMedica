@@ -24,7 +24,6 @@ Partial Class frmDetalleAtencion
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmDetalleAtencion))
-        Me.btnEditar = New System.Windows.Forms.Button()
         Me.tbCelular = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -54,14 +53,16 @@ Partial Class frmDetalleAtencion
         Me.Fecha = New System.Windows.Forms.Label()
         Me.chbEliminar = New System.Windows.Forms.CheckBox()
         Me.lbInexistente = New System.Windows.Forms.LinkLabel()
-        Me.tbBusca = New System.Windows.Forms.TextBox()
-        Me.cbCampo = New System.Windows.Forms.ComboBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.btnBuscar = New System.Windows.Forms.Button()
         Me.dgvListadoAtenciones = New System.Windows.Forms.DataGridView()
         Me.tbid_atencion = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btBuscarEstudio = New System.Windows.Forms.Button()
+        Me.tbNombreEstudio = New System.Windows.Forms.TextBox()
+        Me.tbIdEstudio = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.btnEliminar = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.errorIcono, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.imgbxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -69,25 +70,6 @@ Partial Class frmDetalleAtencion
         CType(Me.dgvListadoAtenciones, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'btnEditar
-        '
-        Me.btnEditar.BackColor = System.Drawing.Color.White
-        Me.btnEditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnEditar.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.btnEditar.FlatAppearance.BorderSize = 0
-        Me.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnEditar.Font = New System.Drawing.Font("Glober Bold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEditar.Image = Global.SisBioMedica.My.Resources.Resources.edit2
-        Me.btnEditar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnEditar.Location = New System.Drawing.Point(270, 508)
-        Me.btnEditar.Name = "btnEditar"
-        Me.btnEditar.Size = New System.Drawing.Size(70, 70)
-        Me.btnEditar.TabIndex = 67
-        Me.btnEditar.Text = "Editar"
-        Me.btnEditar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
-        Me.btnEditar.UseVisualStyleBackColor = False
         '
         'tbCelular
         '
@@ -101,6 +83,7 @@ Partial Class frmDetalleAtencion
         'Label7
         '
         Me.Label7.AutoSize = True
+        Me.Label7.Enabled = False
         Me.Label7.Font = New System.Drawing.Font("Glober Light", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.Label7.Location = New System.Drawing.Point(6, 192)
@@ -112,6 +95,7 @@ Partial Class frmDetalleAtencion
         'Label8
         '
         Me.Label8.AutoSize = True
+        Me.Label8.Enabled = False
         Me.Label8.Font = New System.Drawing.Font("Glober Light", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.Label8.Location = New System.Drawing.Point(6, 161)
@@ -141,6 +125,7 @@ Partial Class frmDetalleAtencion
         'Label5
         '
         Me.Label5.AutoSize = True
+        Me.Label5.Enabled = False
         Me.Label5.Font = New System.Drawing.Font("Glober Light", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.Label5.Location = New System.Drawing.Point(6, 128)
@@ -161,6 +146,7 @@ Partial Class frmDetalleAtencion
         'Label3
         '
         Me.Label3.AutoSize = True
+        Me.Label3.Enabled = False
         Me.Label3.Font = New System.Drawing.Font("Glober Light", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.Label3.Location = New System.Drawing.Point(6, 95)
@@ -224,6 +210,7 @@ Partial Class frmDetalleAtencion
         '
         'dtpFechaAtencion
         '
+        Me.dtpFechaAtencion.Enabled = False
         Me.dtpFechaAtencion.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpFechaAtencion.Location = New System.Drawing.Point(163, 285)
         Me.dtpFechaAtencion.Name = "dtpFechaAtencion"
@@ -233,6 +220,7 @@ Partial Class frmDetalleAtencion
         'btnBuscarCliente
         '
         Me.btnBuscarCliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.btnBuscarCliente.Enabled = False
         Me.btnBuscarCliente.FlatAppearance.BorderSize = 0
         Me.btnBuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnBuscarCliente.ForeColor = System.Drawing.Color.White
@@ -257,13 +245,14 @@ Partial Class frmDetalleAtencion
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(75, 70)
         Me.btnCancelar.TabIndex = 68
-        Me.btnCancelar.Text = "Cancelar"
+        Me.btnCancelar.Text = "Salir"
         Me.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
         Me.btnCancelar.UseVisualStyleBackColor = False
         '
         'tbCICliente
         '
+        Me.tbCICliente.Enabled = False
         Me.tbCICliente.Location = New System.Drawing.Point(234, 55)
         Me.tbCICliente.MaxLength = 50
         Me.tbCICliente.Name = "tbCICliente"
@@ -279,6 +268,7 @@ Partial Class frmDetalleAtencion
         'lbPrecio
         '
         Me.lbPrecio.AutoSize = True
+        Me.lbPrecio.Enabled = False
         Me.lbPrecio.Font = New System.Drawing.Font("Glober Light", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPrecio.ForeColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.lbPrecio.Location = New System.Drawing.Point(5, 260)
@@ -289,6 +279,7 @@ Partial Class frmDetalleAtencion
         '
         'tbNumComprobante
         '
+        Me.tbNumComprobante.Enabled = False
         Me.tbNumComprobante.Location = New System.Drawing.Point(163, 252)
         Me.tbNumComprobante.MaxLength = 50
         Me.tbNumComprobante.Name = "tbNumComprobante"
@@ -298,6 +289,7 @@ Partial Class frmDetalleAtencion
         'Label4
         '
         Me.Label4.AutoSize = True
+        Me.Label4.Enabled = False
         Me.Label4.Font = New System.Drawing.Font("Glober Light", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.Label4.Location = New System.Drawing.Point(6, 227)
@@ -359,7 +351,7 @@ Partial Class frmDetalleAtencion
         Me.btnGuardarEstudio.Name = "btnGuardarEstudio"
         Me.btnGuardarEstudio.Size = New System.Drawing.Size(70, 70)
         Me.btnGuardarEstudio.TabIndex = 66
-        Me.btnGuardarEstudio.Text = "Guardar"
+        Me.btnGuardarEstudio.Text = "Agregar"
         Me.btnGuardarEstudio.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnGuardarEstudio.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
         Me.btnGuardarEstudio.UseVisualStyleBackColor = False
@@ -367,6 +359,7 @@ Partial Class frmDetalleAtencion
         'Fecha
         '
         Me.Fecha.AutoSize = True
+        Me.Fecha.Enabled = False
         Me.Fecha.Font = New System.Drawing.Font("Glober Light", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Fecha.ForeColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.Fecha.Location = New System.Drawing.Point(6, 293)
@@ -397,34 +390,10 @@ Partial Class frmDetalleAtencion
         Me.lbInexistente.TabStop = True
         Me.lbInexistente.Text = "Datos Inexistentes"
         '
-        'tbBusca
-        '
-        Me.tbBusca.Location = New System.Drawing.Point(3, 68)
-        Me.tbBusca.MaxLength = 100
-        Me.tbBusca.Name = "tbBusca"
-        Me.tbBusca.Size = New System.Drawing.Size(248, 27)
-        Me.tbBusca.TabIndex = 18
-        '
-        'cbCampo
-        '
-        Me.cbCampo.AutoCompleteCustomSource.AddRange(New String() {"numero_documento", "ci"})
-        Me.cbCampo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.cbCampo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.cbCampo.FormattingEnabled = True
-        Me.cbCampo.Items.AddRange(New Object() {"numero_documento", "ci"})
-        Me.cbCampo.Location = New System.Drawing.Point(3, 34)
-        Me.cbCampo.Name = "cbCampo"
-        Me.cbCampo.Size = New System.Drawing.Size(168, 27)
-        Me.cbCampo.TabIndex = 18
-        Me.cbCampo.Text = "numero_documento"
-        '
         'GroupBox3
         '
         Me.GroupBox3.Controls.Add(Me.chbEliminar)
-        Me.GroupBox3.Controls.Add(Me.btnBuscar)
         Me.GroupBox3.Controls.Add(Me.lbInexistente)
-        Me.GroupBox3.Controls.Add(Me.tbBusca)
-        Me.GroupBox3.Controls.Add(Me.cbCampo)
         Me.GroupBox3.Controls.Add(Me.dgvListadoAtenciones)
         Me.GroupBox3.Font = New System.Drawing.Font("Glober Bold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(204, Byte), Integer))
@@ -434,19 +403,6 @@ Partial Class frmDetalleAtencion
         Me.GroupBox3.TabIndex = 63
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Listado de Categorias"
-        '
-        'btnBuscar
-        '
-        Me.btnBuscar.FlatAppearance.BorderSize = 0
-        Me.btnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White
-        Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBuscar.Image = Global.SisBioMedica.My.Resources.Resources.search1
-        Me.btnBuscar.Location = New System.Drawing.Point(257, 68)
-        Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.Size = New System.Drawing.Size(25, 24)
-        Me.btnBuscar.TabIndex = 20
-        Me.btnBuscar.UseVisualStyleBackColor = True
         '
         'dgvListadoAtenciones
         '
@@ -475,6 +431,7 @@ Partial Class frmDetalleAtencion
         'Label2
         '
         Me.Label2.AutoSize = True
+        Me.Label2.Enabled = False
         Me.Label2.Font = New System.Drawing.Font("Glober Light", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.Label2.Location = New System.Drawing.Point(6, 63)
@@ -485,6 +442,10 @@ Partial Class frmDetalleAtencion
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.btBuscarEstudio)
+        Me.GroupBox1.Controls.Add(Me.tbNombreEstudio)
+        Me.GroupBox1.Controls.Add(Me.tbIdEstudio)
+        Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.tbCelular)
         Me.GroupBox1.Controls.Add(Me.Label7)
         Me.GroupBox1.Controls.Add(Me.Label8)
@@ -514,6 +475,65 @@ Partial Class frmDetalleAtencion
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Reporte de Atencion"
         '
+        'btBuscarEstudio
+        '
+        Me.btBuscarEstudio.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.btBuscarEstudio.FlatAppearance.BorderSize = 0
+        Me.btBuscarEstudio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btBuscarEstudio.ForeColor = System.Drawing.Color.White
+        Me.btBuscarEstudio.Location = New System.Drawing.Point(411, 317)
+        Me.btBuscarEstudio.Name = "btBuscarEstudio"
+        Me.btBuscarEstudio.Size = New System.Drawing.Size(39, 27)
+        Me.btBuscarEstudio.TabIndex = 49
+        Me.btBuscarEstudio.Text = "..."
+        Me.btBuscarEstudio.UseVisualStyleBackColor = False
+        '
+        'tbNombreEstudio
+        '
+        Me.tbNombreEstudio.Location = New System.Drawing.Point(234, 318)
+        Me.tbNombreEstudio.MaxLength = 50
+        Me.tbNombreEstudio.Name = "tbNombreEstudio"
+        Me.tbNombreEstudio.Size = New System.Drawing.Size(171, 27)
+        Me.tbNombreEstudio.TabIndex = 48
+        '
+        'tbIdEstudio
+        '
+        Me.tbIdEstudio.Location = New System.Drawing.Point(164, 318)
+        Me.tbIdEstudio.MaxLength = 50
+        Me.tbIdEstudio.Name = "tbIdEstudio"
+        Me.tbIdEstudio.Size = New System.Drawing.Size(64, 27)
+        Me.tbIdEstudio.TabIndex = 47
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Glober Light", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.Label6.Location = New System.Drawing.Point(6, 326)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(62, 19)
+        Me.Label6.TabIndex = 46
+        Me.Label6.Text = "Estudio"
+        '
+        'btnEliminar
+        '
+        Me.btnEliminar.BackColor = System.Drawing.Color.White
+        Me.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnEliminar.FlatAppearance.BorderSize = 0
+        Me.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEliminar.Font = New System.Drawing.Font("Glober Bold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEliminar.Image = Global.SisBioMedica.My.Resources.Resources.garbage1
+        Me.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnEliminar.Location = New System.Drawing.Point(853, 508)
+        Me.btnEliminar.Name = "btnEliminar"
+        Me.btnEliminar.Size = New System.Drawing.Size(75, 70)
+        Me.btnEliminar.TabIndex = 71
+        Me.btnEliminar.Text = "Eliminar"
+        Me.btnEliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
+        Me.btnEliminar.UseVisualStyleBackColor = False
+        '
         'frmDetalleAtencion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -521,7 +541,7 @@ Partial Class frmDetalleAtencion
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(940, 585)
-        Me.Controls.Add(Me.btnEditar)
+        Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.btnCerrar)
         Me.Controls.Add(Me.PictureBox1)
@@ -546,8 +566,6 @@ Partial Class frmDetalleAtencion
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents btnEditar As Button
     Friend WithEvents tbCelular As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
@@ -566,10 +584,7 @@ Partial Class frmDetalleAtencion
     Friend WithEvents btnGuardarEstudio As Button
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents chbEliminar As CheckBox
-    Friend WithEvents btnBuscar As Button
     Friend WithEvents lbInexistente As LinkLabel
-    Friend WithEvents tbBusca As TextBox
-    Friend WithEvents cbCampo As ComboBox
     Friend WithEvents dgvListadoAtenciones As DataGridView
     Friend WithEvents Eliminar As DataGridViewCheckBoxColumn
     Friend WithEvents GroupBox1 As GroupBox
@@ -585,4 +600,9 @@ Partial Class frmDetalleAtencion
     Friend WithEvents Fecha As Label
     Friend WithEvents tbid_atencion As TextBox
     Friend WithEvents Label2 As Label
+    Friend WithEvents btBuscarEstudio As Button
+    Friend WithEvents tbNombreEstudio As TextBox
+    Friend WithEvents tbIdEstudio As TextBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents btnEliminar As Button
 End Class
