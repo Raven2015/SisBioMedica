@@ -26,6 +26,7 @@ Partial Class frmCliente
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCliente))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.tbFlag = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.tbCodigo_Cliente = New System.Windows.Forms.TextBox()
         Me.lbci = New System.Windows.Forms.Label()
@@ -72,7 +73,7 @@ Partial Class frmCliente
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.btnNuevo = New System.Windows.Forms.Button()
         Me.imgbxLogo = New System.Windows.Forms.PictureBox()
-        Me.tbFlag = New System.Windows.Forms.TextBox()
+        Me.btnImprimir = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -125,6 +126,16 @@ Partial Class frmCliente
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos Personales"
+        '
+        'tbFlag
+        '
+        Me.tbFlag.Location = New System.Drawing.Point(445, 12)
+        Me.tbFlag.MaxLength = 50
+        Me.tbFlag.Name = "tbFlag"
+        Me.tbFlag.Size = New System.Drawing.Size(25, 27)
+        Me.tbFlag.TabIndex = 22
+        Me.tbFlag.Text = "0"
+        Me.tbFlag.Visible = False
         '
         'Label10
         '
@@ -635,15 +646,24 @@ Partial Class frmCliente
         Me.imgbxLogo.TabIndex = 17
         Me.imgbxLogo.TabStop = False
         '
-        'tbFlag
+        'btnImprimir
         '
-        Me.tbFlag.Location = New System.Drawing.Point(445, 12)
-        Me.tbFlag.MaxLength = 50
-        Me.tbFlag.Name = "tbFlag"
-        Me.tbFlag.Size = New System.Drawing.Size(25, 27)
-        Me.tbFlag.TabIndex = 22
-        Me.tbFlag.Text = "0"
-        Me.tbFlag.Visible = False
+        Me.btnImprimir.BackColor = System.Drawing.Color.White
+        Me.btnImprimir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnImprimir.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnImprimir.FlatAppearance.BorderSize = 0
+        Me.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnImprimir.Font = New System.Drawing.Font("Glober Bold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnImprimir.Image = Global.SisBioMedica.My.Resources.Resources.close
+        Me.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnImprimir.Location = New System.Drawing.Point(506, 619)
+        Me.btnImprimir.Name = "btnImprimir"
+        Me.btnImprimir.Size = New System.Drawing.Size(75, 70)
+        Me.btnImprimir.TabIndex = 28
+        Me.btnImprimir.Text = "Imprimir"
+        Me.btnImprimir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
+        Me.btnImprimir.UseVisualStyleBackColor = False
         '
         'frmCliente
         '
@@ -651,6 +671,7 @@ Partial Class frmCliente
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(940, 700)
+        Me.Controls.Add(Me.btnImprimir)
         Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.btnCerrar)
         Me.Controls.Add(Me.PictureBox1)
@@ -730,4 +751,5 @@ Partial Class frmCliente
     Friend WithEvents tbCodigo_Cliente As TextBox
     Friend WithEvents btnEliminar As Button
     Friend WithEvents tbFlag As TextBox
+    Friend WithEvents btnImprimir As Button
 End Class

@@ -117,36 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnCerrar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAMZJREFUOE+F
-        k8sOgkAMRVnwecQYw/8Z4sJvNC7GnuE2FNI6J6mB+6iCmQlaa7PN0+bRhT9YZrXZ6LhA+W0DX5u1Gwl4
-        ygCdGZFvjqRL0ORFNozF5tNvD05LuJYWobN4oFyiqcsOgowIxXHZwVCgoi47BBS8Mi6DhbJnhv5OFMsh
-        oGBFvQRDgQj3mXZegiAjwjPfNdd3cizhQkKEwq0HDK6lRfYl9sHBiKRvG01e5IURD1NadvCUgf0wyWAJ
-        v2T4P5NR1srT9AMIv4UzFg575gAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <metadata name="errorIcono.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>16, -45</value>
-  </metadata>
-  <data name="btnGuardarEstudio.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vAAADrwBlbxySQAAAaBJREFUWEftmbtKw1AAhquCg4OLIA6Ci4OrgiIiiC4uLg5eOvsAXgYXB8FXcHET
-        By9vIQ66iZur4DN4QcXL96dNPYTTNqfnpCmaDz6SE2jytU3SQ1oymMA7/MTvNviBZUxFNz7gBS7gXNVj
-        vMclD5fxCzcx3q/cw3dcx6YMo97VaDT6ZR+vK6st04sKVFQSRaeKHEEFammSNnAKpxPqWxGNAsUWKnIt
-        GtXBN/AJX/EZX1D76kPRLFBsoyJXo5GFEIEzldXoNHENFA0jOyFQ7OAbrkQjg04JFLuoT3IoGlUJEah7
-        2hguok+gtSVEoF5v2lGBikgao/XcAxuReeBjddmqB5hZ4AbeBHIc0+AUmAdFoC9/K1DzxOQ0KqT9mMQp
-        ULcJbc9K263HOfAKzV+IUNa7NzoHXlZWg1ME+pJZ4CQeOXqIA2iSWeAsnuKZgyc4iCbFOehLcZG4WFwk
-        WfB/Am/RNlXyNVigtmeld2AP2qZKoezCJE6BeWBtqfcIOA/ip2NqqmE+RJ9HnRt5qGOfo1riR8g12v03
-        hE0dWw1qgVLpB3xYdzZyBzVwAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <metadata name="Eliminar.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Eliminar.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
 </root>

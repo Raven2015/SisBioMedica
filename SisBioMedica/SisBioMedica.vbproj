@@ -47,10 +47,13 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -78,6 +81,11 @@
     <Compile Include="Datos\fCliente.vb" />
     <Compile Include="Datos\fDetalle.vb" />
     <Compile Include="Datos\fEstudio.vb" />
+    <Compile Include="dbBioDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbBioDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -105,34 +113,64 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Presentacion\frmAtencion.Designer.vb">
+    <Compile Include="Presentacion\Estudio\dlgInsertarEstudios.Designer.vb">
+      <DependentUpon>dlgInsertarEstudios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Estudio\dlgInsertarEstudios.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Atencion\frmAtencion.Designer.vb">
       <DependentUpon>frmAtencion.vb</DependentUpon>
     </Compile>
-    <Compile Include="Presentacion\frmAtencion.vb">
+    <Compile Include="Presentacion\Atencion\frmAtencion.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentacion\frmCategoria.Designer.vb">
+    <Compile Include="Presentacion\Categoria\frmCategoria.Designer.vb">
       <DependentUpon>frmCategoria.vb</DependentUpon>
     </Compile>
-    <Compile Include="Presentacion\frmCategoria.vb">
+    <Compile Include="Presentacion\Categoria\frmCategoria.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentacion\frmCliente.Designer.vb">
+    <Compile Include="Presentacion\Cliente\frmCliente.Designer.vb">
       <DependentUpon>frmCliente.vb</DependentUpon>
     </Compile>
-    <Compile Include="Presentacion\frmCliente.vb">
+    <Compile Include="Presentacion\Cliente\frmCliente.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentacion\frmDetalleAtencion.Designer.vb">
+    <Compile Include="Presentacion\DetalleAtencion\frmDetalleAtencion.Designer.vb">
       <DependentUpon>frmDetalleAtencion.vb</DependentUpon>
     </Compile>
-    <Compile Include="Presentacion\frmDetalleAtencion.vb">
+    <Compile Include="Presentacion\DetalleAtencion\frmDetalleAtencion.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentacion\frmEstudio.Designer.vb">
+    <Compile Include="Presentacion\Estudio\frmEstudio.Designer.vb">
       <DependentUpon>frmEstudio.vb</DependentUpon>
     </Compile>
-    <Compile Include="Presentacion\frmEstudio.vb">
+    <Compile Include="Presentacion\Estudio\frmEstudio.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Inicio\Inicio.Designer.vb">
+      <DependentUpon>Inicio.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Inicio\Inicio.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReporteClientes.Designer.vb">
+      <DependentUpon>frmReporteClientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmReporteClientes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReporteComprobante.Designer.vb">
+      <DependentUpon>frmReporteComprobante.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmReporteComprobante.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReporteEstudios.Designer.vb">
+      <DependentUpon>frmReporteEstudios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmReporteEstudios.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
@@ -146,23 +184,52 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentacion\frmAtencion.resx">
+    <EmbeddedResource Include="Presentacion\Estudio\dlgInsertarEstudios.resx">
+      <DependentUpon>dlgInsertarEstudios.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Atencion\frmAtencion.resx">
       <DependentUpon>frmAtencion.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentacion\frmCategoria.resx">
+    <EmbeddedResource Include="Presentacion\Categoria\frmCategoria.resx">
       <DependentUpon>frmCategoria.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentacion\frmCliente.resx">
+    <EmbeddedResource Include="Presentacion\Cliente\frmCliente.resx">
       <DependentUpon>frmCliente.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentacion\frmDetalleAtencion.resx">
+    <EmbeddedResource Include="Presentacion\DetalleAtencion\frmDetalleAtencion.resx">
       <DependentUpon>frmDetalleAtencion.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentacion\frmEstudio.resx">
+    <EmbeddedResource Include="Presentacion\Estudio\frmEstudio.resx">
       <DependentUpon>frmEstudio.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Inicio\Inicio.resx">
+      <DependentUpon>Inicio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Comprobante.rdlc" />
+    <EmbeddedResource Include="Reportes\frmReporteClientes.resx">
+      <DependentUpon>frmReporteClientes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmReporteComprobante.resx">
+      <DependentUpon>frmReporteComprobante.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmReporteEstudios.resx">
+      <DependentUpon>frmReporteEstudios.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RClientes.rdlc" />
+    <EmbeddedResource Include="Reportes\REstudios.rdlc" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="dbBioDataSet.xsc">
+      <DependentUpon>dbBioDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="dbBioDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dbBioDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dbBioDataSet.xss">
+      <DependentUpon>dbBioDataSet.xsd</DependentUpon>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -174,9 +241,7 @@
     </None>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Reportes\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Resources\close.png" />
     <Content Include="Resources\edit1.png" />
@@ -189,6 +254,9 @@
     <Content Include="Resources\search.png" />
     <None Include="Resources\search1.png" />
     <None Include="Resources\x-mark-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

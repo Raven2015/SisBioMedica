@@ -7,7 +7,7 @@ Public Class fDetalle
     Public Function mostrar() As DataTable 'Se usa DataTable ya que es el formato devuelto por SQL
         Try
             conectado() 'Llama a la funcion conectado de la clase Conexion
-            cmd = New SqlCommand("mostrar_detalle") 'Llama al procedimiento almacenado en la BD.
+            cmd = New SqlCommand("mostrar_detalle_atencion") 'Llama al procedimiento almacenado en la BD.
             cmd.CommandType = CommandType.StoredProcedure 'Selecciona el tipo de comando a enviar (Procedimiento Almacenado)
 
             cmd.Connection = cnn 'Se establece la variable cnn para la conexion de cmd
@@ -33,16 +33,16 @@ Public Class fDetalle
     Public Function insertar(ByVal dts As vDetalleAtencion) As Boolean
         Try
             conectado()
-            cmd = New SqlCommand("insertar_detalle")
+            cmd = New SqlCommand("insertar_detalle_atencion")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
 
             cmd.Parameters.AddWithValue("@id_atencion", dts.gid_atencion)
             cmd.Parameters.AddWithValue("@id_estudio", dts.gid_estudio)
-            cmd.Parameters.AddWithValue("@id_convenio", dts.gid_convenio)
-            cmd.Parameters.AddWithValue("@gid_campania", dts.gid_campania)
+            'cmd.Parameters.AddWithValue("@id_convenio", dts.gid_convenio)
+            'cmd.Parameters.AddWithValue("@gid_campania", dts.gid_campania)
             cmd.Parameters.AddWithValue("@precio_parcial", dts.gprecio_parcial)
-            cmd.Parameters.AddWithValue("@precio_total", dts.gprecio_total)
+            'cmd.Parameters.AddWithValue("@precio_total", dts.gprecio_total) ELIMINADO
 
             If cmd.ExecuteNonQuery Then
                 Return True
@@ -60,17 +60,17 @@ Public Class fDetalle
     Public Function editar(ByVal dts As vDetalleAtencion) As Boolean
         Try
             conectado()
-            cmd = New SqlCommand("editar_detalle")
+            cmd = New SqlCommand("editar_detalle_atencion")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
 
             cmd.Parameters.AddWithValue("@id_detalle", dts.gid_detalle)
             cmd.Parameters.AddWithValue("@id_atencion", dts.gid_atencion)
             cmd.Parameters.AddWithValue("@id_estudio", dts.gid_estudio)
-            cmd.Parameters.AddWithValue("@id_convenio", dts.gid_convenio)
-            cmd.Parameters.AddWithValue("@gid_campania", dts.gid_campania)
+            'cmd.Parameters.AddWithValue("@id_convenio", dts.gid_convenio)
+            'cmd.Parameters.AddWithValue("@gid_campania", dts.gid_campania)
             cmd.Parameters.AddWithValue("@precio_parcial", dts.gprecio_parcial)
-            cmd.Parameters.AddWithValue("@precio_total", dts.gprecio_total)
+            'cmd.Parameters.AddWithValue("@precio_total", dts.gprecio_total)  ELIMINADO
 
             If cmd.ExecuteNonQuery Then
                 Return True
@@ -88,7 +88,7 @@ Public Class fDetalle
     Public Function eliminar(ByVal dts As vDetalleAtencion)
         Try
             conectado()
-            cmd = New SqlCommand("eliminar_detalle")
+            cmd = New SqlCommand("eliminar_detalle_atencion")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
             cmd.Parameters.Add("@id_detalle", SqlDbType.NVarChar, 50).Value = dts.gid_detalle

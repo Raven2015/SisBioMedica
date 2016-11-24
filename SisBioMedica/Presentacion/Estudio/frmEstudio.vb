@@ -305,6 +305,16 @@ Public Class frmEstudio
         btnEditar.Visible = True
     End Sub
 
+    '   --------------------    DOBLE CLICK EN CELDA DEL LISTADO     --------------------
+    Private Sub dgvListadoEstudios_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvListadoEstudios.CellDoubleClick
+        If tbFlag.Text = "1" Then
+            frmDetalleAtencion.tbIdEstudio.Text = dgvListadoEstudios.SelectedCells.Item(1).Value
+            frmDetalleAtencion.tbNombreEstudio.Text = dgvListadoEstudios.SelectedCells.Item(5).Value
+            frmDetalleAtencion.tbPrecio.Text = dgvListadoEstudios.SelectedCells.Item(7).Value
+            Me.Close()
+        End If
+    End Sub
+
     '   &&&&&&&&&&&&&&&&&&&&    FIN METODOS LISTADO     &&&&&&&&&&&&&&&&&&&&
 
 
@@ -374,6 +384,9 @@ Public Class frmEstudio
 
     End Sub
 
+    Private Sub btnImprimir_Click(sender As Object, e As EventArgs) Handles btnImprimir.Click
+        frmReporteEstudios.ShowDialog()
+    End Sub
 
     Private Sub PictureBox1_MouseMove(sender As Object, e As MouseEventArgs) Handles PictureBox1.MouseMove
         If mover Then
@@ -381,6 +394,8 @@ Public Class frmEstudio
             Me.Location = Me.PointToScreen(New Point(Me.MousePosition.X - Me.Location.X - px, Me.MousePosition.Y - Me.Location.Y - py))
         End If
     End Sub
+
+
     '   &&&&&&&&&&&&&&&&&&&&    FIN CODIGO MOVER VENTANA     &&&&&&&&&&&&&&&&&&&&
 
 End Class

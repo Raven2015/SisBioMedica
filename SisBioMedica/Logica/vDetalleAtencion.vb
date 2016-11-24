@@ -56,14 +56,15 @@
         End Set
     End Property
 
-    Public Property gprecio_total
-        Get
-            Return precio_total
-        End Get
-        Set(value)
-            precio_total = value
-        End Set
-    End Property
+    'Public Property gprecio_total
+    '    Get
+    '        Return precio_total
+    '    End Get
+    '    Set(value)
+    '        precio_total = value
+    '    End Set
+    'End Property
+    '-----COLUMNA ELIMINADA-----
 
 
     '-------------- CONSTRUCTORES
@@ -84,6 +85,18 @@
         gid_convenio = id_convenio
         gid_campania = id_campania
         gprecio_parcial = precio_parcial
-        gprecio_total = precio_total
+        'gprecio_total = precio_total -----COLUMNA ELIMINADA-----
+    End Sub
+
+    Public Sub New(ByVal id_detalle As Integer,
+                   ByVal id_atencion As Integer,
+                   ByVal id_estudio As Integer,
+                   ByVal precio_parcial As Double,
+                   ByVal precio_total As Double)
+        gid_detalle = id_detalle
+        gid_atencion = id_atencion
+        gid_estudio = id_estudio
+        gprecio_parcial = precio_parcial
+        'gprecio_total = precio_total -----COLUMNA ELIMINADA-----
     End Sub
 End Class

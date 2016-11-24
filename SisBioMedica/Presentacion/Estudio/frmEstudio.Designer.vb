@@ -58,6 +58,8 @@ Partial Class frmEstudio
         Me.btnEditar = New System.Windows.Forms.Button()
         Me.btnGuardarEstudio = New System.Windows.Forms.Button()
         Me.imgbxLogo = New System.Windows.Forms.PictureBox()
+        Me.tbFlag = New System.Windows.Forms.TextBox()
+        Me.btnImprimir = New System.Windows.Forms.Button()
         CType(Me.errorIcono, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvListadoEstudios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
@@ -472,12 +474,44 @@ Partial Class frmEstudio
         Me.imgbxLogo.TabIndex = 43
         Me.imgbxLogo.TabStop = False
         '
+        'tbFlag
+        '
+        Me.tbFlag.Enabled = False
+        Me.tbFlag.Location = New System.Drawing.Point(473, 40)
+        Me.tbFlag.MaxLength = 50
+        Me.tbFlag.Name = "tbFlag"
+        Me.tbFlag.Size = New System.Drawing.Size(45, 20)
+        Me.tbFlag.TabIndex = 33
+        Me.tbFlag.Text = "0"
+        Me.tbFlag.Visible = False
+        '
+        'btnImprimir
+        '
+        Me.btnImprimir.BackColor = System.Drawing.Color.White
+        Me.btnImprimir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnImprimir.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnImprimir.FlatAppearance.BorderSize = 0
+        Me.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnImprimir.Font = New System.Drawing.Font("Glober Bold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnImprimir.Image = Global.SisBioMedica.My.Resources.Resources.close
+        Me.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnImprimir.Location = New System.Drawing.Point(506, 508)
+        Me.btnImprimir.Name = "btnImprimir"
+        Me.btnImprimir.Size = New System.Drawing.Size(75, 70)
+        Me.btnImprimir.TabIndex = 51
+        Me.btnImprimir.Text = "Imprimir"
+        Me.btnImprimir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
+        Me.btnImprimir.UseVisualStyleBackColor = False
+        '
         'frmEstudio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(940, 590)
+        Me.Controls.Add(Me.btnImprimir)
+        Me.Controls.Add(Me.tbFlag)
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.btnCerrar)
@@ -539,4 +573,6 @@ Partial Class frmEstudio
     Friend WithEvents Eliminar As DataGridViewCheckBoxColumn
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents tbid_categoria As TextBox
+    Friend WithEvents tbFlag As TextBox
+    Friend WithEvents btnImprimir As Button
 End Class

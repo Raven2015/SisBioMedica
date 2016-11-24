@@ -38,7 +38,6 @@ Partial Class frmDetalleAtencion
         Me.errorIcono = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.tbNombreCliente = New System.Windows.Forms.TextBox()
         Me.dtpFechaAtencion = New System.Windows.Forms.DateTimePicker()
-        Me.btnBuscarCliente = New System.Windows.Forms.Button()
         Me.btnCancelar = New System.Windows.Forms.Button()
         Me.tbCICliente = New System.Windows.Forms.TextBox()
         Me.Eliminar = New System.Windows.Forms.DataGridViewCheckBoxColumn()
@@ -58,11 +57,14 @@ Partial Class frmDetalleAtencion
         Me.tbid_atencion = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.tbPrecio = New System.Windows.Forms.TextBox()
         Me.btBuscarEstudio = New System.Windows.Forms.Button()
         Me.tbNombreEstudio = New System.Windows.Forms.TextBox()
         Me.tbIdEstudio = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.btnEliminar = New System.Windows.Forms.Button()
+        Me.btnImprimirComprobante = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.errorIcono, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.imgbxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -74,7 +76,7 @@ Partial Class frmDetalleAtencion
         'tbCelular
         '
         Me.tbCelular.Enabled = False
-        Me.tbCelular.Location = New System.Drawing.Point(164, 186)
+        Me.tbCelular.Location = New System.Drawing.Point(164, 172)
         Me.tbCelular.MaxLength = 50
         Me.tbCelular.Name = "tbCelular"
         Me.tbCelular.Size = New System.Drawing.Size(287, 27)
@@ -86,7 +88,7 @@ Partial Class frmDetalleAtencion
         Me.Label7.Enabled = False
         Me.Label7.Font = New System.Drawing.Font("Glober Light", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(204, Byte), Integer))
-        Me.Label7.Location = New System.Drawing.Point(6, 192)
+        Me.Label7.Location = New System.Drawing.Point(6, 178)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(57, 19)
         Me.Label7.TabIndex = 44
@@ -98,7 +100,7 @@ Partial Class frmDetalleAtencion
         Me.Label8.Enabled = False
         Me.Label8.Font = New System.Drawing.Font("Glober Light", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(204, Byte), Integer))
-        Me.Label8.Location = New System.Drawing.Point(6, 161)
+        Me.Label8.Location = New System.Drawing.Point(6, 147)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(74, 19)
         Me.Label8.TabIndex = 43
@@ -107,7 +109,7 @@ Partial Class frmDetalleAtencion
         'tbDireccion
         '
         Me.tbDireccion.Enabled = False
-        Me.tbDireccion.Location = New System.Drawing.Point(164, 153)
+        Me.tbDireccion.Location = New System.Drawing.Point(164, 139)
         Me.tbDireccion.MaxLength = 50
         Me.tbDireccion.Name = "tbDireccion"
         Me.tbDireccion.Size = New System.Drawing.Size(287, 27)
@@ -116,7 +118,7 @@ Partial Class frmDetalleAtencion
         'tbSexoCliente
         '
         Me.tbSexoCliente.Enabled = False
-        Me.tbSexoCliente.Location = New System.Drawing.Point(164, 120)
+        Me.tbSexoCliente.Location = New System.Drawing.Point(164, 106)
         Me.tbSexoCliente.MaxLength = 50
         Me.tbSexoCliente.Name = "tbSexoCliente"
         Me.tbSexoCliente.Size = New System.Drawing.Size(145, 27)
@@ -128,7 +130,7 @@ Partial Class frmDetalleAtencion
         Me.Label5.Enabled = False
         Me.Label5.Font = New System.Drawing.Font("Glober Light", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(204, Byte), Integer))
-        Me.Label5.Location = New System.Drawing.Point(6, 128)
+        Me.Label5.Location = New System.Drawing.Point(6, 114)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(43, 19)
         Me.Label5.TabIndex = 39
@@ -137,7 +139,7 @@ Partial Class frmDetalleAtencion
         'tbApellidoCliente
         '
         Me.tbApellidoCliente.Enabled = False
-        Me.tbApellidoCliente.Location = New System.Drawing.Point(315, 87)
+        Me.tbApellidoCliente.Location = New System.Drawing.Point(315, 73)
         Me.tbApellidoCliente.MaxLength = 50
         Me.tbApellidoCliente.Name = "tbApellidoCliente"
         Me.tbApellidoCliente.Size = New System.Drawing.Size(136, 27)
@@ -149,7 +151,7 @@ Partial Class frmDetalleAtencion
         Me.Label3.Enabled = False
         Me.Label3.Font = New System.Drawing.Font("Glober Light", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(204, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(6, 95)
+        Me.Label3.Location = New System.Drawing.Point(6, 81)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(152, 19)
         Me.Label3.TabIndex = 37
@@ -202,7 +204,7 @@ Partial Class frmDetalleAtencion
         'tbNombreCliente
         '
         Me.tbNombreCliente.Enabled = False
-        Me.tbNombreCliente.Location = New System.Drawing.Point(164, 87)
+        Me.tbNombreCliente.Location = New System.Drawing.Point(164, 73)
         Me.tbNombreCliente.MaxLength = 50
         Me.tbNombreCliente.Name = "tbNombreCliente"
         Me.tbNombreCliente.Size = New System.Drawing.Size(145, 27)
@@ -212,24 +214,10 @@ Partial Class frmDetalleAtencion
         '
         Me.dtpFechaAtencion.Enabled = False
         Me.dtpFechaAtencion.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFechaAtencion.Location = New System.Drawing.Point(163, 285)
+        Me.dtpFechaAtencion.Location = New System.Drawing.Point(163, 271)
         Me.dtpFechaAtencion.Name = "dtpFechaAtencion"
         Me.dtpFechaAtencion.Size = New System.Drawing.Size(136, 27)
         Me.dtpFechaAtencion.TabIndex = 35
-        '
-        'btnBuscarCliente
-        '
-        Me.btnBuscarCliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(204, Byte), Integer))
-        Me.btnBuscarCliente.Enabled = False
-        Me.btnBuscarCliente.FlatAppearance.BorderSize = 0
-        Me.btnBuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBuscarCliente.ForeColor = System.Drawing.Color.White
-        Me.btnBuscarCliente.Location = New System.Drawing.Point(411, 54)
-        Me.btnBuscarCliente.Name = "btnBuscarCliente"
-        Me.btnBuscarCliente.Size = New System.Drawing.Size(39, 27)
-        Me.btnBuscarCliente.TabIndex = 34
-        Me.btnBuscarCliente.Text = "..."
-        Me.btnBuscarCliente.UseVisualStyleBackColor = False
         '
         'btnCancelar
         '
@@ -253,7 +241,7 @@ Partial Class frmDetalleAtencion
         'tbCICliente
         '
         Me.tbCICliente.Enabled = False
-        Me.tbCICliente.Location = New System.Drawing.Point(234, 55)
+        Me.tbCICliente.Location = New System.Drawing.Point(280, 41)
         Me.tbCICliente.MaxLength = 50
         Me.tbCICliente.Name = "tbCICliente"
         Me.tbCICliente.Size = New System.Drawing.Size(171, 27)
@@ -271,7 +259,7 @@ Partial Class frmDetalleAtencion
         Me.lbPrecio.Enabled = False
         Me.lbPrecio.Font = New System.Drawing.Font("Glober Light", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbPrecio.ForeColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(204, Byte), Integer))
-        Me.lbPrecio.Location = New System.Drawing.Point(5, 260)
+        Me.lbPrecio.Location = New System.Drawing.Point(5, 246)
         Me.lbPrecio.Name = "lbPrecio"
         Me.lbPrecio.Size = New System.Drawing.Size(118, 19)
         Me.lbPrecio.TabIndex = 27
@@ -280,7 +268,7 @@ Partial Class frmDetalleAtencion
         'tbNumComprobante
         '
         Me.tbNumComprobante.Enabled = False
-        Me.tbNumComprobante.Location = New System.Drawing.Point(163, 252)
+        Me.tbNumComprobante.Location = New System.Drawing.Point(163, 238)
         Me.tbNumComprobante.MaxLength = 50
         Me.tbNumComprobante.Name = "tbNumComprobante"
         Me.tbNumComprobante.Size = New System.Drawing.Size(287, 27)
@@ -292,7 +280,7 @@ Partial Class frmDetalleAtencion
         Me.Label4.Enabled = False
         Me.Label4.Font = New System.Drawing.Font("Glober Light", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(204, Byte), Integer))
-        Me.Label4.Location = New System.Drawing.Point(6, 227)
+        Me.Label4.Location = New System.Drawing.Point(6, 213)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(135, 19)
         Me.Label4.TabIndex = 25
@@ -301,7 +289,7 @@ Partial Class frmDetalleAtencion
         'tbMedicoRemitente
         '
         Me.tbMedicoRemitente.Enabled = False
-        Me.tbMedicoRemitente.Location = New System.Drawing.Point(164, 219)
+        Me.tbMedicoRemitente.Location = New System.Drawing.Point(164, 205)
         Me.tbMedicoRemitente.MaxLength = 50
         Me.tbMedicoRemitente.Name = "tbMedicoRemitente"
         Me.tbMedicoRemitente.Size = New System.Drawing.Size(287, 27)
@@ -310,10 +298,10 @@ Partial Class frmDetalleAtencion
         'tbCodigoCliente
         '
         Me.tbCodigoCliente.Enabled = False
-        Me.tbCodigoCliente.Location = New System.Drawing.Point(164, 55)
+        Me.tbCodigoCliente.Location = New System.Drawing.Point(164, 41)
         Me.tbCodigoCliente.MaxLength = 50
         Me.tbCodigoCliente.Name = "tbCodigoCliente"
-        Me.tbCodigoCliente.Size = New System.Drawing.Size(64, 27)
+        Me.tbCodigoCliente.Size = New System.Drawing.Size(110, 27)
         Me.tbCodigoCliente.TabIndex = 23
         '
         'imgbxLogo
@@ -362,7 +350,7 @@ Partial Class frmDetalleAtencion
         Me.Fecha.Enabled = False
         Me.Fecha.Font = New System.Drawing.Font("Glober Light", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Fecha.ForeColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(204, Byte), Integer))
-        Me.Fecha.Location = New System.Drawing.Point(6, 293)
+        Me.Fecha.Location = New System.Drawing.Point(6, 279)
         Me.Fecha.Name = "Fecha"
         Me.Fecha.Size = New System.Drawing.Size(107, 19)
         Me.Fecha.TabIndex = 22
@@ -434,7 +422,7 @@ Partial Class frmDetalleAtencion
         Me.Label2.Enabled = False
         Me.Label2.Font = New System.Drawing.Font("Glober Light", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(204, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(6, 63)
+        Me.Label2.Location = New System.Drawing.Point(6, 49)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(57, 19)
         Me.Label2.TabIndex = 0
@@ -442,6 +430,8 @@ Partial Class frmDetalleAtencion
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label9)
+        Me.GroupBox1.Controls.Add(Me.tbPrecio)
         Me.GroupBox1.Controls.Add(Me.btBuscarEstudio)
         Me.GroupBox1.Controls.Add(Me.tbNombreEstudio)
         Me.GroupBox1.Controls.Add(Me.tbIdEstudio)
@@ -456,7 +446,6 @@ Partial Class frmDetalleAtencion
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.tbNombreCliente)
         Me.GroupBox1.Controls.Add(Me.dtpFechaAtencion)
-        Me.GroupBox1.Controls.Add(Me.btnBuscarCliente)
         Me.GroupBox1.Controls.Add(Me.tbCICliente)
         Me.GroupBox1.Controls.Add(Me.lbPrecio)
         Me.GroupBox1.Controls.Add(Me.tbNumComprobante)
@@ -475,13 +464,32 @@ Partial Class frmDetalleAtencion
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Reporte de Atencion"
         '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Glober Light", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.Label9.Location = New System.Drawing.Point(6, 345)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(53, 19)
+        Me.Label9.TabIndex = 51
+        Me.Label9.Text = "Precio"
+        '
+        'tbPrecio
+        '
+        Me.tbPrecio.Location = New System.Drawing.Point(164, 337)
+        Me.tbPrecio.MaxLength = 50
+        Me.tbPrecio.Name = "tbPrecio"
+        Me.tbPrecio.Size = New System.Drawing.Size(145, 27)
+        Me.tbPrecio.TabIndex = 50
+        '
         'btBuscarEstudio
         '
         Me.btBuscarEstudio.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.btBuscarEstudio.FlatAppearance.BorderSize = 0
         Me.btBuscarEstudio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btBuscarEstudio.ForeColor = System.Drawing.Color.White
-        Me.btBuscarEstudio.Location = New System.Drawing.Point(411, 317)
+        Me.btBuscarEstudio.Location = New System.Drawing.Point(411, 303)
         Me.btBuscarEstudio.Name = "btBuscarEstudio"
         Me.btBuscarEstudio.Size = New System.Drawing.Size(39, 27)
         Me.btBuscarEstudio.TabIndex = 49
@@ -490,7 +498,7 @@ Partial Class frmDetalleAtencion
         '
         'tbNombreEstudio
         '
-        Me.tbNombreEstudio.Location = New System.Drawing.Point(234, 318)
+        Me.tbNombreEstudio.Location = New System.Drawing.Point(234, 304)
         Me.tbNombreEstudio.MaxLength = 50
         Me.tbNombreEstudio.Name = "tbNombreEstudio"
         Me.tbNombreEstudio.Size = New System.Drawing.Size(171, 27)
@@ -498,7 +506,7 @@ Partial Class frmDetalleAtencion
         '
         'tbIdEstudio
         '
-        Me.tbIdEstudio.Location = New System.Drawing.Point(164, 318)
+        Me.tbIdEstudio.Location = New System.Drawing.Point(164, 304)
         Me.tbIdEstudio.MaxLength = 50
         Me.tbIdEstudio.Name = "tbIdEstudio"
         Me.tbIdEstudio.Size = New System.Drawing.Size(64, 27)
@@ -509,7 +517,7 @@ Partial Class frmDetalleAtencion
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Glober Light", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(204, Byte), Integer))
-        Me.Label6.Location = New System.Drawing.Point(6, 326)
+        Me.Label6.Location = New System.Drawing.Point(6, 312)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(62, 19)
         Me.Label6.TabIndex = 46
@@ -534,6 +542,24 @@ Partial Class frmDetalleAtencion
         Me.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
         Me.btnEliminar.UseVisualStyleBackColor = False
         '
+        'btnImprimirComprobante
+        '
+        Me.btnImprimirComprobante.BackColor = System.Drawing.Color.White
+        Me.btnImprimirComprobante.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnImprimirComprobante.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnImprimirComprobante.FlatAppearance.BorderSize = 0
+        Me.btnImprimirComprobante.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnImprimirComprobante.Font = New System.Drawing.Font("Glober Bold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnImprimirComprobante.Image = CType(resources.GetObject("btnImprimirComprobante.Image"), System.Drawing.Image)
+        Me.btnImprimirComprobante.Location = New System.Drawing.Point(270, 508)
+        Me.btnImprimirComprobante.Name = "btnImprimirComprobante"
+        Me.btnImprimirComprobante.Size = New System.Drawing.Size(75, 70)
+        Me.btnImprimirComprobante.TabIndex = 72
+        Me.btnImprimirComprobante.Text = "Imprimir"
+        Me.btnImprimirComprobante.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnImprimirComprobante.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
+        Me.btnImprimirComprobante.UseVisualStyleBackColor = False
+        '
         'frmDetalleAtencion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -541,6 +567,7 @@ Partial Class frmDetalleAtencion
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(940, 585)
+        Me.Controls.Add(Me.btnImprimirComprobante)
         Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.btnCerrar)
@@ -590,7 +617,6 @@ Partial Class frmDetalleAtencion
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents tbNombreCliente As TextBox
     Friend WithEvents dtpFechaAtencion As DateTimePicker
-    Friend WithEvents btnBuscarCliente As Button
     Friend WithEvents tbCICliente As TextBox
     Friend WithEvents lbPrecio As Label
     Friend WithEvents tbNumComprobante As TextBox
@@ -605,4 +631,7 @@ Partial Class frmDetalleAtencion
     Friend WithEvents tbIdEstudio As TextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents btnEliminar As Button
+    Friend WithEvents Label9 As Label
+    Friend WithEvents tbPrecio As TextBox
+    Friend WithEvents btnImprimirComprobante As Button
 End Class

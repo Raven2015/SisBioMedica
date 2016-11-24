@@ -390,6 +390,11 @@ Public Class frmCliente
         btnEditar.Visible = True
     End Sub
 
+    Private Sub btnImprimir_Click(sender As Object, e As EventArgs) Handles btnImprimir.Click
+        'Me.Close()
+        frmReporteClientes.ShowDialog()
+    End Sub
+
     Private Sub dgvListadoClientes_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvListadoClientes.CellDoubleClick
         If tbFlag.Text = "1" Then
             frmAtencion.tbCodigoCliente.Text = dgvListadoClientes.SelectedCells.Item(1).Value

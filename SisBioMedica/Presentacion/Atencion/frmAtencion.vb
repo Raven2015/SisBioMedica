@@ -1,17 +1,10 @@
-﻿Public Class frmDetalleAtencion
+﻿Public Class frmAtencion
+
     Dim px, py As Integer
     Dim mover As Boolean
 
     Dim dt As New DataTable 'Se crea una variable para almacenar el resultado de la BD
-
-
-
-
-    Private Sub dgvListadoAtenciones_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvListadoAtenciones.CellContentClick
-
-    End Sub
-
-    Private Sub frmDetalleAtencion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub frmAtencion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         mostrar()
     End Sub
 
@@ -27,8 +20,18 @@
     Public Sub limpiar()
         'Limpia lo svalores de las cajas de texto.
         btnGuardarEstudio.Visible = True
-        tbIdEstudio.Text = ""
-        tbNombreEstudio.Text = ""
+        btnEditar.Visible = False
+        tbid_atencion.Text = ""
+        tbCodigoCliente.Text = ""
+        tbCICliente.Text = ""
+        tbApellidoCliente.Text = ""
+        tbNombreCliente.Text = ""
+        tbSexoCliente.Text = ""
+        tbDireccion.Text = ""
+        tbCelular.Text = ""
+        tbMedicoRemitente.Text = ""
+        tbNumComprobante.Text = ""
+
     End Sub
 
     '   --------------------    METODO MOSTRAR     --------------------
@@ -36,16 +39,18 @@
 
         Try
 
-            Dim func As New fDetalle 'Se crea una instancia de la clase fCategoria.
+            Dim func As New fAtencion 'Se crea una instancia de la clase fCategoria.
             dt = func.mostrar 'Se llama al procedimiento mostrar de la clase fCategoria
             dgvListadoAtenciones.Columns.Item("Eliminar").Visible = False 'Ocultamos la columna eliminar que se acaba de crear
 
             If dt.Rows.Count <> 0 Then 'Se comprueba que el numero de filas sea diferente de 0
                 dgvListadoAtenciones.DataSource = dt 'Se transfieren los datos de la variable dt al Data Grid View
+                tbBusca.Enabled = True 'Se habilita el TextBox Buscar ya que existen datos
                 dgvListadoAtenciones.ColumnHeadersVisible = True 'Se hacen visibles las cabeceras del DataGridView
                 lbInexistente.Visible = False 'Se oculta el linkLabel.
             Else
                 dgvListadoAtenciones.DataSource = Nothing 'Como no hay datos no se muestra nada
+                tbBusca.Enabled = False 'Se deshabilita el TextBox Buscar ya que no existen datos
                 dgvListadoAtenciones.ColumnHeadersVisible = False 'Se ocultan las cabeceras del DataGridView
                 lbInexistente.Visible = True 'Se muestra el linkLabel.
 
@@ -54,6 +59,7 @@
             MsgBox(ex.Message)
         End Try
         btnNuevo.Visible = True 'Se muestra el boton Nuevo
+        btnEditar.Visible = False 'Se oculta el boton editar
         tbid_atencion.Visible = False
 
         buscar()
@@ -66,7 +72,7 @@
             ds.Tables.Add(dt.Copy)
             Dim dv As New DataView(ds.Tables(0))
 
-            dv.RowFilter = "id_estudio='" & tbIdEstudio.Text & "'"
+            dv.RowFilter = cbCampo.Text & " like '" & tbBusca.Text & "%'"
             If dv.Count <> 0 Then
                 lbInexistente.Visible = False
                 dgvListadoAtenciones.DataSource = dv
@@ -85,7 +91,6 @@
     Private Sub ocultar_columnas()
         dgvListadoAtenciones.Columns(1).Visible = False
         dgvListadoAtenciones.Columns(2).Visible = False
-        dgvListadoAtenciones.Columns(3).Visible = False
     End Sub
     '   &&&&&&&&&&&&&&&&&&&&    FIN METODOS INTERNOS     &&&&&&&&&&&&&&&&&&&&
 
@@ -155,7 +160,7 @@
 
 
     '   --------------------    BOTON EDITAR     --------------------
-    Private Sub btnEditar_Click_1(sender As Object, e As EventArgs)
+    Private Sub btnEditar_Click_1(sender As Object, e As EventArgs) Handles btnEditar.Click
         Dim result As DialogResult
 
         result = MessageBox.Show("Realmente desea editar los datos del Reporte?", "Modificando Registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
@@ -256,7 +261,7 @@
     End Sub
 
     '   --------------------    BOTON BUSCAR     --------------------
-    Private Sub btnBuscar_Click(sender As Object, e As EventArgs)
+    Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
         mostrar()
     End Sub
 
@@ -301,10 +306,10 @@
         tbNombreCliente.Text = dgvListadoAtenciones.SelectedCells.Item(3).Value
         tbApellidoCliente.Text = dgvListadoAtenciones.SelectedCells.Item(4).Value
         tbSexoCliente.Text = dgvListadoAtenciones.SelectedCells.Item(10).Value
-        tbDireccion = dgvListadoAtenciones.SelectedCells.Item(7).Value
+        tbDireccion.Text = dgvListadoAtenciones.SelectedCells.Item(7).Value
         tbCelular.Text = dgvListadoAtenciones.SelectedCells.Item(9).Value
         tbMedicoRemitente.Text = dgvListadoAtenciones.SelectedCells.Item(3).Value
-        tbNumComprobante.Text = dgvListadoAtenciones.SelectedCells.Item(7).Value
+        tbNumComprobante.Text = dgvListadoAtenciones.SelectedCells.Item(16).Value
         dtpFechaAtencion.Text = dgvListadoAtenciones.SelectedCells.Item(18).Value
 
 
@@ -320,16 +325,6 @@
 
     '   &&&&&&&&&&&&&&&&&&&&    FIN METODOS LISTADO     &&&&&&&&&&&&&&&&&&&&
 
-
-
-
-    '   &&&&&&&&&&&&&&&&&&&&    METODOS DE VALIDACION     &&&&&&&&&&&&&&&&&&&&
-
-    '--------- ORDEN DE VALIDACION
-    'CODIGO_ESTUDIO
-    'NOMBRE_ESTUDIO
-    'PRECIO
-    '
 
 
     '   &&&&&&&&&&&&&&&&&&&&    FIN METODOS DE VALIDACION     &&&&&&&&&&&&&&&&&&&&
@@ -377,7 +372,7 @@
 
     End Sub
 
-    Private Sub tbBusca_TextChanged(sender As Object, e As EventArgs)
+    Private Sub tbBusca_TextChanged(sender As Object, e As EventArgs) Handles tbBusca.TextChanged
         buscar()
     End Sub
 
@@ -403,4 +398,5 @@
 
 
     '   &&&&&&&&&&&&&&&&&&&&    FIN CODIGO MOVER VENTANA     &&&&&&&&&&&&&&&&&&&&
+
 End Class
